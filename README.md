@@ -1,4 +1,6 @@
-# SculptBox V1.0
+# SculptBox — ZBrush Brush Manager & 3D Asset Manager
+
+**SculptBox is a ZBrush brush manager for macOS and Windows that lets 3D artists organize, search, tag and preview their ZBrush brush library (.ZBP / .ZBR / .MNU) outside of ZBrush — no need to launch ZBrush just to browse.**
 
 **3D Asset Management Tool — Your brush library, at your fingertips.**
 
@@ -12,8 +14,8 @@ English · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](RE
 
 | Version | Download | Notes |
 |:--------|:---------|:------|
-| macOS V1.0 | [GitHub Releases](https://github.com/skillshen-boop/SculptBox/releases/latest) | Direct download |
-| macOS V1.0 | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
+| macOS V1.1 | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download |
+| macOS V1.1 | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
 
 ---
 
@@ -147,11 +149,46 @@ Type in the search bar at the top. Results filter in real-time. Use tags on the 
 
 ---
 
+## Who It's For
+
+SculptBox fits anywhere ZBrush sits in the pipeline:
+
+| Field | Typical users |
+|:--|:--|
+| **Jewelry & fine jewelry design** | Jewelry designers, jewelry CAD designers, bench jewelers sculpting rings and pendants in ZBrush |
+| **Film & VFX** | Character artists, creature designers, modelers on film and episodic VFX |
+| **Game art** | Character artists, hard-surface artists, environment and prop modelers |
+| **Collectibles, toys & miniatures** | Toy designers, figurine and statue sculptors, miniature makers, 3D printing artists |
+| **Concept & illustration** | Concept artists and creature designers who sculpt their concepts |
+| **3D printing** | Anyone preparing resin-printable or printable sculpts |
+
+Everyday roles: digital sculptors, 3D artists, digital sculpting students and art-school learners, freelancers and studios working in ZBrush 2026 and later.
+
+## FAQ
+
+**Where are ZBrush brushes stored?**
+ZBrush keeps user brushes in its user-content folders (ZStartup / ZBrushData). The exact path varies by version — see Maxon's documentation.
+
+**How do I organize ZBrush brushes when I have thousands?**
+Point SculptBox at your brush folders. It indexes every .ZBP / .ZBR / .MNU file, shows real thumbnails, and gives you instant search, tags and favorites.
+
+**How do I find a brush by name instead of scrolling LightBox?**
+Search in SculptBox, then send it straight into ZBrush — no manual LightBox browsing.
+
+**Does it work with insert mesh (IMM) brushes, alphas and matcaps?**
+Yes. SculptBox indexes IMM / insert-mesh brushes, alphas, matcaps, and regular brushes.
+
+**My brushes disappeared after a ZBrush update. Why?**
+Recent ZBrush releases changed the user asset directory layout. SculptBox scans whatever folders you point it at, so it can catalog brushes that ZBrush's own browser no longer shows.
+
+**Does SculptBox work without ZBrush installed?**
+Yes. Thumbnails are parsed natively from the .ZBP files, so ZBrush does not need to be running — or even installed — to browse your library.
+
 ## Links
 
 - Website: [sculptbox.net](https://sculptbox.net)
-- Download: [GitHub Releases](https://github.com/skillshen-boop/SculptBox/releases)
-- Feedback: [Issues](https://github.com/skillshen-boop/SculptBox/issues)
+- Download: [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases)
+- Feedback: [Issues](https://github.com/skillshen-boop/zbrush-sculptbox/issues)
 
 ---
 

@@ -1,4 +1,6 @@
-# SculptBox V1.0
+# SculptBox — ZBrush 笔刷管理 & 3D 资产管理工具
+
+**SculptBox 是一款面向 macOS 与 Windows 的 ZBrush 笔刷管理工具，让 3D 艺术家无需打开 ZBrush 就能整理、搜索、打标签和预览自己的笔刷库（.ZBP / .ZBR / .MNU）。**
 
 **3D 资产管理工具 — 让笔刷库随取随用。**
 
@@ -12,8 +14,8 @@
 
 | 版本 | 下载 | 说明 |
 |:----|:----|:------|
-| macOS V1.0 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/SculptBox/releases/latest) | 直接下载 |
-| macOS V1.0 | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
+| macOS V1.1 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 |
+| macOS V1.1 | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
 
 ---
 
@@ -144,11 +146,46 @@ Settings → Plugin Status 一目了然：
 
 ---
 
+## 适用人群与行业
+
+只要 ZBrush 在流程里，SculptBox 就能派上用场：
+
+| 领域 | 典型使用者 |
+|:--|:--|
+| **珠宝 / 首饰设计** | 珠宝设计师、珠宝 CAD 设计师、用 ZBrush 雕戒指与吊坠的打版师 |
+| **电影 / VFX** | 角色美术、生物设计、影视模型师 |
+| **游戏美术** | 角色美术、硬表面美术、场景与道具模型师 |
+| **手办 / 潮玩 / 微缩** | 玩具设计师、手办与雕像雕刻师、微缩模型师、3D 打印建模师 |
+| **概念设计** | 用雕刻方式做设计的原画师与生物设计师 |
+| **3D 打印** | 需要准备可打印模型的创作者 |
+
+日常角色：数字雕刻师、3D 建模师、雕刻专业学生与美术院校学习者、自由职业者与工作室（ZBrush 2026 及以上）。
+
+## 常见问题
+
+**ZBrush 笔刷存在哪里？**
+存在 ZBrush 的用户内容目录（ZStartup / ZBrushData）中，具体路径随版本不同，可参考 Maxon 官方文档。
+
+**笔刷太多怎么整理？**
+把 SculptBox 指向你的笔刷目录。它会索引全部 .ZBP / .ZBR / .MNU 文件，显示真实缩略图，并提供即时搜索、标签与收藏。
+
+**怎么按名字找笔刷，而不是在 LightBox 里翻？**
+在 SculptBox 里搜索，然后直接发送进 ZBrush，不用再手动翻 LightBox。
+
+**支持插入笔刷（IMM）、Alpha 和 Matcap 吗？**
+支持。SculptBox 会索引 IMM / 插入网格笔刷、Alpha、Matcap 和普通笔刷。
+
+**ZBrush 升级后笔刷不见了，为什么？**
+较新的 ZBrush 版本改动了用户资产目录结构。SculptBox 扫描的是你指定的目录，因此能把 ZBrush 自身浏览器里已经看不到的笔刷重新编目出来。
+
+**没装 ZBrush 能用吗？**
+可以。缩略图是从 .ZBP 文件原生解析的，浏览笔刷库不需要 ZBrush 运行，也不需要安装。
+
 ## 🔗 链接
 
 - 官网：[sculptbox.net](https://sculptbox.net)
-- 下载：[GitHub Releases](https://github.com/skillshen-boop/SculptBox/releases)
-- 反馈：[Issues](https://github.com/skillshen-boop/SculptBox/issues)
+- 下载：[GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases)
+- 反馈：[Issues](https://github.com/skillshen-boop/zbrush-sculptbox/issues)
 
 ---
 

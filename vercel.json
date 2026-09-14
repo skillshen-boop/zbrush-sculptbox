@@ -4,6 +4,6 @@
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
-    { "source": "/download", "destination": "https://github.com/skillshen-boop/SculptBox/releases/latest" }
+    { "source": "/download", "destination": "https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest" }
   ]
 }
