@@ -14,8 +14,8 @@
 
 | 버전 | 다운로드 | 비고 |
 |:----|:--------|:-----|
-| macOS V1.1 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | ZBrush 2026+ |
-| macOS V1.1 | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 코드: `tayr` |
+| macOS V1.2 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | ZBrush 2026+ |
+| macOS V1.2 | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 코드: `tayr` |
 
 ---
 

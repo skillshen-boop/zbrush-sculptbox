@@ -55,10 +55,11 @@
 
 <section class="page-head"><div class="container">
 <h1>Release notes</h1>
-<p class="lede">SculptBox &mdash; 1.1.0</p>
+<p class="lede">SculptBox &mdash; 1.2.0</p>
 </div></section>
 
 <section class="prose"><div class="container">
+<div class="rel"><h3>V1.2.0</h3><div class="date">2026-09-14</div><ul><li><strong>New:</strong> About page — author, contact links and the WeChat QR code.</li><li><strong>New:</strong> Update check — Settings → Update shows your version, queries GitHub Releases, and lets you skip a version.</li><li>Right-clicking a brush sent the previously selected one; the menu now acts on the brush under the cursor.</li><li>The ZBrush status block now clearly shows connected / offline / send-failed.</li><li>The app logo was missing from the packaged build (assets were never bundled).</li><li><strong>Privacy:</strong> earlier builds could ship the author's local paths and thumbnail database inside the app bundle — the bundle is now clean.</li><li><strong>Site:</strong> 24 pages across 4 languages, plus sitemap / robots for search engines.</li></ul></div>
 <div class="rel"><h3>V1.1.0</h3><div class="date">2026-09-14</div><ul><li><strong>Code protection</strong> — 8 core modules (ZBP parsing, IPC, caching, plugin deployment) now compile to native code; no Python bytecode ships in the bundle.</li><li>Nested scan directories produced thousands of duplicate brushes — fixed (10,676 → 6,482 entries).</li><li>Favorite star did not refresh (even-indexed brushes stayed grey; leftovers after a batch delete).</li><li>Crash when clearing list widgets.</li><li>Crash on quit when a background task was still running.</li><li>Imports failed inside the packaged app (28 sites).</li><li>Backup files leaked source code into the app bundle.</li><li><strong>New:</strong> Clear Cache button in Settings (4 languages).</li><li><strong>New:</strong> Nested scan paths are filtered automatically.</li></ul></div>
 <div class="rel"><h3>V1.0.0</h3><div class="date">2026-05-24</div><ul><li>First public release.</li><li>Brush library indexing with real thumbnails parsed from <code>.ZBP</code> files.</li><li>Instant search, tags, favorites and categories.</li><li>Send to ZBrush via the IPC bridge, including batch send.</li><li>4 languages: English, 中文, 日本語, 한국어.</li></ul></div>
 <p style="margin-top:8px;"><a href="download.html"><strong>Download the latest version &rarr;</strong></a></p>

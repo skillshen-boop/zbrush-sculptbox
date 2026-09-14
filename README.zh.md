@@ -14,8 +14,8 @@
 
 | 版本 | 下载 | 说明 |
 |:----|:----|:------|
-| macOS V1.1 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 |
-| macOS V1.1 | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
+| macOS V1.2 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 |
+| macOS V1.2 | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
 
 ---
 

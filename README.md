@@ -14,8 +14,8 @@ English · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](RE
 
 | Version | Download | Notes |
 |:--------|:---------|:------|
-| macOS V1.1 | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download |
-| macOS V1.1 | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
+| macOS V1.2 | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download |
+| macOS V1.2 | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
 
 ---
 
