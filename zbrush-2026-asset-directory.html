@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZBrush 2026.1 Asset Directory Change — Where Did My Brushes Go?</title>
+<meta name="description" content="ZBrush 2026.1 moved all user brushes into a single per-user asset folder. Here is exactly where your brushes are now, how to move them back, and how to keep them findable next time.">
+<meta name="keywords" content="ZBrush 2026.1 asset directory, ZBrush brushes missing, where are ZBrush brushes stored, ZBrush brush folder location, ZBrush ZStartUp BrushPresets, ZBRUSH_USER_ASSETS_DIR, ZBrush brushes disappeared, ZBrush brush manager">
+<meta property="og:title" content="ZBrush 2026.1 Asset Directory Change — Where Did My Brushes Go?">
+<meta property="og:description" content="ZBrush 2026.1 moved all user brushes into a single per-user asset folder. Here is exactly where your brushes are now, how to move them back, and how to keep them findable next time.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.html#article",
+      "headline": "ZBrush 2026.1 Asset Directory Change — Where Did My Brushes Go?",
+      "description": "ZBrush 2026.1 moved all user brushes into a single per-user asset folder. Here is exactly where your brushes are now, how to move them back, and how to keep them findable next time.",
+      "inLanguage": "en",
+      "url": "https://sculptbox.net/zbrush-2026-asset-directory.html",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where are ZBrush brushes stored in 2026.1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the per-user asset folder: macOS /Users/[you]/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets, Windows C:\\Users\\[you]\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I still put brushes in the ZBrush install folder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. From 2026.1 ZBrush will not write files to the application root folder, and the shared ZBrushData(version) folder is no longer created."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my old brushes load automatically after upgrading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if they sit in the new per-user ZStartUp location. Anything left in the old install directory or shared public folders will not appear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SculptBox work without ZBrush installed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Thumbnails are parsed natively from the .ZBP files, so ZBrush does not need to be running — or installed — to browse your brush library."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+<a href="index.html#features">Features</a>
+<a href="faq.html">FAQ</a>
+<a href="changelog.html">Changelog</a>
+<a href="about.html">About</a>
+<a href="download.html" class="nav-dl">Download</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; ZBrush 2026.1 asset directory change</div>
+
+<section class="page-head"><div class="container">
+<h1>Where did my ZBrush brushes go?</h1>
+<p class="lede">ZBrush 2026.1 rebuilt how user assets are stored. If your custom brushes, alphas or materials vanished after upgrading, this is why — and here is how to get them back.</p>
+</div></section>
+
+<section class="prose"><div class="container">
+
+<div class="callout"><p><strong>SculptBox is a ZBrush brush manager for macOS and Windows that indexes your brush library wherever it already lives on disk</strong> — so your brushes stay findable even when ZBrush changes its folder layout again.</p></div>
+
+<h2>What actually changed in 2026.1</h2>
+<p>ZBrush 2026.1 replaced the old scattered asset locations with a single user folder per system account. Previously custom items could live in the install directory or in shared public folders; now they must all live in one place.</p>
+
+<table class="tbl">
+<tr><th></th><th>Before 2026.1</th><th>2026.1 and newer</th></tr>
+<tr><td><strong>macOS</strong></td><td><code>…/ZBrush (Version)/ZStartUp/…</code><br><code>Users/Shared/ZBrushData(Version)/</code></td><td><code>/Users/[you]/Library/Application Support/Maxon/ZBrush_[HashValue]/</code></td></tr>
+<tr><td><strong>Windows</strong></td><td><code>C:\Program Files\…\ZStartUp\…</code><br><code>Users/Public/Public Documents/</code></td><td><code>C:\Users\[you]\AppData\Roaming\Maxon\ZBrush_[HashValue]\</code></td></tr>
+</table>
+
+<p>Two consequences matter in practice:</p>
+<ul>
+<li>ZBrush <strong>no longer writes files into the application folder</strong> — that path is now read-only from inside ZBrush.</li>
+<li>The old shared <code>ZBrushData(version)</code> folder is <strong>no longer created</strong>, so anything you left there is not picked up.</li>
+</ul>
+
+<h2>Where your brushes are now</h2>
+<p>Everything lives under a <code>ZStartUp</code> folder inside that user directory:</p>
+<pre><code>[user assets]/
+└── ZStartUp/
+    ├── BrushPresets/    ← custom brushes (.ZBP / .ZBR)
+    ├── Alphas/
+    ├── Materials/
+    ├── HotKeys/
+    └── …
+
+[user assets]/
+├── QuickSaves/
+├── LightBox/
+└── PluginData/</code></pre>
+
+<h2>How to get your brushes back</h2>
+<ol>
+<li>Open <strong>Preferences → Asset Directory → Open Directory</strong>. This reveals the exact folder ZBrush is using right now — no guessing.</li>
+<li>Move your custom files into the matching <code>ZStartUp/</code> subfolder: brushes → <code>BrushPresets</code>, alphas → <code>Alphas</code>, materials → <code>Materials</code>.</li>
+<li>Restart ZBrush. They load alongside Maxon's own assets at startup.</li>
+<li>Want the folder on another drive, a server or a synced directory? Use <strong>Preferences → Asset Directory → Change Location</strong>, or set the environment variable <code>ZBRUSH_USER_ASSETS_DIR</code>. <strong>Reset to Default</strong> reverts it — restart ZBrush afterwards either way.</li>
+</ol>
+
+<h2>Why this keeps happening</h2>
+<p>Every major ZBrush release has moved or renamed something, and each move costs you an afternoon of hunting for brushes you already had. Managing a large brush library by folder shape alone does not scale — and ZBrush's own browser gives you no search, no tags and no real thumbnails.</p>
+<p>SculptBox takes a different approach: <strong>point it at your brush folders and it indexes them where they are</strong>. It parses <code>.ZBP</code> files directly to show real thumbnails, gives you instant search, tags and favorites, and can send a brush straight into ZBrush — and it does all of that without ZBrush needing to be running.</p>
+<p>That means the next time Maxon reshuffles the directory, your library does not go missing: it was never tied to ZBrush's folder layout in the first place.</p>
+<p><a href="download.html">Download SculptBox</a> · <a href="faq.html">Read the FAQ</a></p>
+
+<h2>FAQ</h2>
+<div class="faq-item"><h3>Where are ZBrush brushes stored in 2026.1?</h3><p>In the per-user asset folder — macOS <code>…/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets</code>, Windows <code>…\AppData\Roaming\Maxon\ZBrush_[HashValue]\ZStartUp\BrushPresets</code>.</p></div>
+<div class="faq-item"><h3>Can I still put brushes in the ZBrush install folder?</h3><p>No. From 2026.1 ZBrush will not write to the application root, and the shared <code>ZBrushData(version)</code> folder is no longer created.</p></div>
+<div class="faq-item"><h3>Will my old brushes load automatically after upgrading?</h3><p>Only if they sit in the new per-user <code>ZStartUp</code> location. Anything left in the old install or shared folders will not appear.</p></div>
+<div class="faq-item"><h3>Does SculptBox work without ZBrush installed?</h3><p>Yes — thumbnails are parsed natively from the <code>.ZBP</code> files, so ZBrush does not need to be running, or even installed, to browse your library.</p></div>
+
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; ZBrush brush manager for macOS and Windows.</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

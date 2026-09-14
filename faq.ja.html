@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SculptBox よくある質問 — ZBrush ブラシ管理ツール</title>
+<meta name="description" content="SculptBox のよくある質問：ZBrush の対応バージョン、ZBrush なしでの利用、ブラシの重複、保存場所、データの扱い、アンインストール方法。">
+<meta name="keywords" content="SculptBox よくある質問, ZBrush ブラシ管理 ヘルプ, SculptBox サポート">
+<meta property="og:title" content="SculptBox よくある質問 — ZBrush ブラシ管理ツール">
+<meta property="og:description" content="SculptBox のよくある質問：ZBrush の対応バージョン、ZBrush なしでの利用、ブラシの重複、保存場所、データの扱い、アンインストール方法。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sculptbox.net/faq.ja.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/faq.ja.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/faq.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/faq.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/faq.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/faq.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/faq.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sculptbox.net/faq.ja.html#page",
+      "name": "SculptBox よくある質問 — ZBrush ブラシ管理ツール",
+      "description": "SculptBox のよくある質問：ZBrush の対応バージョン、ZBrush なしでの利用、ブラシの重複、保存場所、データの扱い、アンインストール方法。",
+      "url": "https://sculptbox.net/faq.ja.html",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/faq.ja.html#faq",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "SculptBox は無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。macOS では無料でダウンロード・利用できます。<strong>Windows 版もまもなく公開予定です</strong>。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "対応している ZBrush のバージョンは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（ZBrush の Python ブリッジを使用するため）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush がなくても使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。サムネイルは <code>.ZBP</code> から直接解析するため、閲覧・検索に ZBrush の起動もインストールも不要です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush のブラシはどこに保存されますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ZBrush 2026.1 以降はユーザーごとのアセットフォルダです。正確なパスは<a href=\"zbrush-2026-asset-directory.html\">2026.1 アセットディレクトリ変更ガイド</a>をご覧ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ブラシが重複して表示されます。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "V1.0 でスキャンフォルダの入れ子が原因だった不具合です（同じブラシが親フォルダと子フォルダの両方に出る）。V1.1 では入れ子パスを自動で除外し、ファイルパスで重複排除します。改善しない場合は設定から再スキャンしてください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ブラシのファイルを変更・移動しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。ブラシフォルダは読み取り専用として扱い、元の <code>.ZBP</code> / <code>.ZBR</code> を移動・改名・編集することはありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "データを送信しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "通信は任意のアップデート確認のみで、送信するのはリクエスト自体だけです。<strong>Settings → Update</strong> でオフにできます。ブラシライブラリやファイル名が外部に出ることはありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アルファやマテリアル、テクスチャも扱えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。ブラシ・アルファ・マテリアル・テクスチャを索引し、それぞれ分類します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "macOS で「壊れているため開けません」と出ます。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "未署名アプリの警告で、ダウンロードの破損ではありません。<code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> を実行してください — 詳細は<a href=\"download.html\">ダウンロードページ</a>へ。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アンインストール方法は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。ZBrush ブリッジを配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="faq.html">English</a><a href="faq.zh.html">中文</a><a href="faq.ja.html">日本語</a><a href="faq.ko.html">한국어</a>
+<a href="index.html#features">機能</a>
+<a href="faq.html">よくある質問</a>
+<a href="changelog.html">更新履歴</a>
+<a href="about.html">このアプリ</a>
+<a href="download.html" class="nav-dl">ダウンロード</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; よくある質問</div>
+
+<section class="page-head"><div class="container">
+<h1>よくある質問</h1>
+</div></section>
+
+<section class="prose"><div class="container">
+<h2></h2>
+<div class="faq-item"><h3>SculptBox は無料ですか？</h3><p>はい。macOS では無料でダウンロード・利用できます。<strong>Windows 版もまもなく公開予定です</strong>。</p></div>
+<div class="faq-item"><h3>対応している ZBrush のバージョンは？</h3><p>ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（ZBrush の Python ブリッジを使用するため）。</p></div>
+<div class="faq-item"><h3>ZBrush がなくても使えますか？</h3><p>使えます。サムネイルは <code>.ZBP</code> から直接解析するため、閲覧・検索に ZBrush の起動もインストールも不要です。</p></div>
+<div class="faq-item"><h3>ZBrush のブラシはどこに保存されますか？</h3><p>ZBrush 2026.1 以降はユーザーごとのアセットフォルダです。正確なパスは<a href="zbrush-2026-asset-directory.html">2026.1 アセットディレクトリ変更ガイド</a>をご覧ください。</p></div>
+<div class="faq-item"><h3>ブラシが重複して表示されます。</h3><p>V1.0 でスキャンフォルダの入れ子が原因だった不具合です（同じブラシが親フォルダと子フォルダの両方に出る）。V1.1 では入れ子パスを自動で除外し、ファイルパスで重複排除します。改善しない場合は設定から再スキャンしてください。</p></div>
+<div class="faq-item"><h3>ブラシのファイルを変更・移動しますか？</h3><p>いいえ。ブラシフォルダは読み取り専用として扱い、元の <code>.ZBP</code> / <code>.ZBR</code> を移動・改名・編集することはありません。</p></div>
+<div class="faq-item"><h3>データを送信しますか？</h3><p>通信は任意のアップデート確認のみで、送信するのはリクエスト自体だけです。<strong>Settings → Update</strong> でオフにできます。ブラシライブラリやファイル名が外部に出ることはありません。</p></div>
+<div class="faq-item"><h3>アルファやマテリアル、テクスチャも扱えますか？</h3><p>はい。ブラシ・アルファ・マテリアル・テクスチャを索引し、それぞれ分類します。</p></div>
+<div class="faq-item"><h3>macOS で「壊れているため開けません」と出ます。</h3><p>未署名アプリの警告で、ダウンロードの破損ではありません。<code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> を実行してください — 詳細は<a href="download.html">ダウンロードページ</a>へ。</p></div>
+<div class="faq-item"><h3>アンインストール方法は？</h3><p>アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。ZBrush ブリッジを配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。</p></div>
+<p style="margin-top:24px;">解決しない場合は<a href="about.html">作者に連絡</a>してください。</p>
+<p style="margin-top:14px;"><a href="zbrush-2026-asset-directory.html"><strong>ZBrush 2026.1 asset directory guide &rarr;</strong></a></p>
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="faq.html">English</a><a href="faq.zh.html">中文</a><a href="faq.ja.html">日本語</a><a href="faq.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; macOS / Windows 向け ZBrush ブラシ管理ツール。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

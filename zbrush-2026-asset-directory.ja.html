@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZBrush 2026.1 のアセットディレクトリ変更 — ブラシはどこへ？</title>
+<meta name="description" content="ZBrush 2026.1 でユーザーブラシは単一のユーザーアセットフォルダに移動しました。現在の正確な場所、戻し方、次に失わない方法をまとめます。">
+<meta name="keywords" content="ZBrush 2026.1 アセットディレクトリ, ZBrush ブラシ 場所, ZBrush ブラシ 消えた, ZBrush ブラシ 保存場所, ZStartUp BrushPresets, ZBRUSH_USER_ASSETS_DIR, ZBrush ブラシ管理">
+<meta property="og:title" content="ZBrush 2026.1 のアセットディレクトリ変更 — ブラシはどこへ？">
+<meta property="og:description" content="ZBrush 2026.1 でユーザーブラシは単一のユーザーアセットフォルダに移動しました。現在の正確な場所、戻し方、次に失わない方法をまとめます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.ja.html#article",
+      "headline": "ZBrush 2026.1 のアセットディレクトリ変更 — ブラシはどこへ？",
+      "description": "ZBrush 2026.1 でユーザーブラシは単一のユーザーアセットフォルダに移動しました。現在の正確な場所、戻し方、次に失わない方法をまとめます。",
+      "inLanguage": "ja",
+      "url": "https://sculptbox.net/zbrush-2026-asset-directory.ja.html",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.ja.html#faq",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ZBrush 2026.1 でブラシはどこに保存されますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ユーザーごとのアセットフォルダです。macOS は /Users/[あなた]/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets、Windows は C:\\Users\\[あなた]\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush のインストールフォルダにブラシを置けますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "できません。2026.1 以降、ZBrush はアプリケーションのルートフォルダに書き込まなくなり、共有の ZBrushData(バージョン) フォルダも作成されません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アップグレード後、古いブラシは自動で読み込まれますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "新しいユーザーフォルダの ZStartUp にあるものだけです。旧インストールフォルダや共有フォルダに残ったものは表示されません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush がなくても SculptBox は使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。サムネイルは .ZBP ファイルから直接解析するため、閲覧に ZBrush の起動もインストールも不要です。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+<a href="index.html#features">機能</a>
+<a href="faq.html">よくある質問</a>
+<a href="changelog.html">更新履歴</a>
+<a href="about.html">このアプリ</a>
+<a href="download.html" class="nav-dl">ダウンロード</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; ZBrush 2026.1 アセットディレクトリ変更</div>
+
+<section class="page-head"><div class="container">
+<h1>ZBrush のブラシはどこへ？</h1>
+<p class="lede">ZBrush 2026.1 はユーザーアセットの保存方法を作り直しました。アップグレード後にカスタムブラシ・アルファ・マテリアルが見当たらない場合、原因はこれです — 以下が復旧方法です。</p>
+</div></section>
+
+<section class="prose"><div class="container">
+
+<div class="callout"><p><strong>SculptBox は macOS / Windows 向けの ZBrush ブラシ管理ツールで、ディスク上に「もともとある場所」をそのまま索引します</strong> — ZBrush が再びフォルダ構成を変えても、ブラシは見つかったままです。</p></div>
+
+<h2>2026.1 で実際に変わったこと</h2>
+<p>ZBrush 2026.1 は、分散していたアセットの保存先を「システムアカウントごとに 1 つのユーザーフォルダ」に置き換えました。以前はインストール先や共有フォルダに置けましたが、現在は 1 か所にまとめる必要があります。</p>
+
+<table class="tbl">
+<tr><th></th><th>2026.1 より前</th><th>2026.1 以降</th></tr>
+<tr><td><strong>macOS</strong></td><td><code>…/ZBrush (バージョン)/ZStartUp/…</code><br><code>Users/Shared/ZBrushData(バージョン)/</code></td><td><code>/Users/[あなた]/Library/Application Support/Maxon/ZBrush_[HashValue]/</code></td></tr>
+<tr><td><strong>Windows</strong></td><td><code>C:\Program Files\…\ZStartUp\…</code><br><code>Users/Public/Public Documents/</code></td><td><code>C:\Users\[あなた]\AppData\Roaming\Maxon\ZBrush_[HashValue]\</code></td></tr>
+</table>
+
+<p>実務上重要な影響は 2 つです：</p>
+<ul>
+<li>ZBrush は<strong>アプリケーションフォルダに書き込まなくなりました</strong> — そのパスは ZBrush 内部からは読み取り専用です。</li>
+<li>旧来の共有 <code>ZBrushData(バージョン)</code> フォルダは<strong>作成されなくなりました</strong>。そこに残したものは読み込まれません。</li>
+</ul>
+
+<h2>ブラシの現在の場所</h2>
+<p>すべてユーザーフォルダ内の <code>ZStartUp</code> の下にあります：</p>
+<pre><code>[user assets]/
+└── ZStartUp/
+    ├── BrushPresets/    ← カスタムブラシ (.ZBP / .ZBR)
+    ├── Alphas/
+    ├── Materials/
+    ├── HotKeys/
+    └── …
+
+[user assets]/
+├── QuickSaves/
+├── LightBox/
+└── PluginData/</code></pre>
+
+<h2>ブラシを戻す手順</h2>
+<ol>
+<li><strong>Preferences → Asset Directory → Open Directory</strong> を開きます。ZBrush が今まさに使っているフォルダが開くので、推測は不要です。</li>
+<li>カスタムファイルを対応する <code>ZStartUp/</code> サブフォルダへ移動します：ブラシ → <code>BrushPresets</code>、アルファ → <code>Alphas</code>、マテリアル → <code>Materials</code>。</li>
+<li>ZBrush を再起動します。Maxon 標準のアセットと一緒に読み込まれます。</li>
+<li>別ドライブ・サーバー・同期フォルダに置きたい場合は <strong>Preferences → Asset Directory → Change Location</strong>、または環境変数 <code>ZBRUSH_USER_ASSETS_DIR</code> を設定します。<strong>Reset to Default</strong> で元に戻せます。どちらも ZBrush の再起動が必要です。</li>
+</ol>
+
+<h2>なぜ繰り返されるのか</h2>
+<p>ZBrush のメジャーリリースはほぼ毎回どこかを移動・改名し、そのたびに既に持っていたブラシを探す半日が発生します。フォルダ構成だけで大規模なブラシライブラリを管理するのは無理があります — しかも ZBrush 標準のブラウザには検索もタグも実サムネイルもありません。</p>
+<p>SculptBox は別のアプローチを取ります：<strong>ブラシフォルダを指定すれば、その場で索引します</strong>。<code>.ZBP</code> を直接解析して実サムネイルを表示し、即時検索・タグ・お気に入りを提供し、ワンクリックで ZBrush へ送れます — しかも ZBrush を起動する必要はありません。</p>
+<p>つまり次に Maxon がディレクトリを変更しても、ライブラリは失われません。そもそも ZBrush のフォルダ構成に縛られていないからです。</p>
+<p><a href="download.html">SculptBox をダウンロード</a> · <a href="faq.html">よくある質問を見る</a></p>
+
+<h2>よくある質問</h2>
+<div class="faq-item"><h3>ZBrush 2026.1 でブラシはどこに保存されますか？</h3><p>ユーザーごとのアセットフォルダです — macOS <code>…/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets</code>、Windows <code>…\AppData\Roaming\Maxon\ZBrush_[HashValue]\ZStartUp\BrushPresets</code>。</p></div>
+<div class="faq-item"><h3>ZBrush のインストールフォルダにブラシを置けますか？</h3><p>できません。2026.1 以降、ZBrush はアプリケーションルートに書き込まず、共有の <code>ZBrushData(バージョン)</code> フォルダも作成されません。</p></div>
+<div class="faq-item"><h3>アップグレード後、古いブラシは自動で読み込まれますか？</h3><p>新しいユーザーフォルダの <code>ZStartUp</code> にあるものだけです。旧インストール先や共有フォルダに残ったものは表示されません。</p></div>
+<div class="faq-item"><h3>ZBrush がなくても SculptBox は使えますか？</h3><p>使えます — サムネイルは <code>.ZBP</code> から直接解析するため、閲覧に ZBrush の起動もインストールも不要です。</p></div>
+
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; macOS / Windows 向け ZBrush ブラシ管理ツール。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

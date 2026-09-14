@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SculptBox Changelog — Release Notes</title>
+<meta name="description" content="Every SculptBox release, newest first: what was fixed, what was added, and which version you should be running.">
+<meta name="keywords" content="SculptBox changelog, SculptBox release notes, ZBrush brush manager updates">
+<meta property="og:title" content="SculptBox Changelog — Release Notes">
+<meta property="og:description" content="Every SculptBox release, newest first: what was fixed, what was added, and which version you should be running.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sculptbox.net/changelog.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/changelog.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/changelog.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/changelog.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/changelog.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/changelog.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/changelog.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sculptbox.net/changelog.html#page",
+      "name": "SculptBox Changelog — Release Notes",
+      "description": "Every SculptBox release, newest first: what was fixed, what was added, and which version you should be running.",
+      "url": "https://sculptbox.net/changelog.html",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="changelog.html">English</a><a href="changelog.zh.html">中文</a><a href="changelog.ja.html">日本語</a><a href="changelog.ko.html">한국어</a>
+<a href="index.html#features">Features</a>
+<a href="faq.html">FAQ</a>
+<a href="changelog.html">Changelog</a>
+<a href="about.html">About</a>
+<a href="download.html" class="nav-dl">Download</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; Changelog</div>
+
+<section class="page-head"><div class="container">
+<h1>Release notes</h1>
+<p class="lede">SculptBox &mdash; 1.1.0</p>
+</div></section>
+
+<section class="prose"><div class="container">
+<div class="rel"><h3>V1.1.0</h3><div class="date">2026-09-14</div><ul><li><strong>Code protection</strong> — 8 core modules (ZBP parsing, IPC, caching, plugin deployment) now compile to native code; no Python bytecode ships in the bundle.</li><li>Nested scan directories produced thousands of duplicate brushes — fixed (10,676 → 6,482 entries).</li><li>Favorite star did not refresh (even-indexed brushes stayed grey; leftovers after a batch delete).</li><li>Crash when clearing list widgets.</li><li>Crash on quit when a background task was still running.</li><li>Imports failed inside the packaged app (28 sites).</li><li>Backup files leaked source code into the app bundle.</li><li><strong>New:</strong> Clear Cache button in Settings (4 languages).</li><li><strong>New:</strong> Nested scan paths are filtered automatically.</li></ul></div>
+<div class="rel"><h3>V1.0.0</h3><div class="date">2026-05-24</div><ul><li>First public release.</li><li>Brush library indexing with real thumbnails parsed from <code>.ZBP</code> files.</li><li>Instant search, tags, favorites and categories.</li><li>Send to ZBrush via the IPC bridge, including batch send.</li><li>4 languages: English, 中文, 日本語, 한국어.</li></ul></div>
+<p style="margin-top:8px;"><a href="download.html"><strong>Download the latest version &rarr;</strong></a></p>
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="changelog.html">English</a><a href="changelog.zh.html">中文</a><a href="changelog.ja.html">日本語</a><a href="changelog.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; ZBrush brush manager for macOS and Windows.</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

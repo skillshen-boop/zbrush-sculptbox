@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SculptBox 常见问题 — ZBrush 笔刷管理工具</title>
+<meta name="description" content="SculptBox 常见问题解答：ZBrush 版本支持、没装 ZBrush 能不能用、笔刷重复、笔刷存放位置、数据隐私与卸载方法。">
+<meta name="keywords" content="SculptBox 常见问题, ZBrush 笔刷管理 帮助, zbrush 笔刷不见了, SculptBox 支持">
+<meta property="og:title" content="SculptBox 常见问题 — ZBrush 笔刷管理工具">
+<meta property="og:description" content="SculptBox 常见问题解答：ZBrush 版本支持、没装 ZBrush 能不能用、笔刷重复、笔刷存放位置、数据隐私与卸载方法。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sculptbox.net/faq.zh.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/faq.zh.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/faq.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/faq.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/faq.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/faq.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/faq.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sculptbox.net/faq.zh.html#page",
+      "name": "SculptBox 常见问题 — ZBrush 笔刷管理工具",
+      "description": "SculptBox 常见问题解答：ZBrush 版本支持、没装 ZBrush 能不能用、笔刷重复、笔刷存放位置、数据隐私与卸载方法。",
+      "url": "https://sculptbox.net/faq.zh.html",
+      "inLanguage": "zh-Hans",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/faq.zh.html#faq",
+      "inLanguage": "zh-Hans",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "SculptBox 免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "免费。macOS 上可免费下载与使用；<strong>Windows 版本即将完成并发布</strong>。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些 ZBrush 版本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它走 ZBrush 的 Python 桥接。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "没装 ZBrush 能用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。缩略图是从 <code>.ZBP</code> 文件原生解析的，所以浏览和搜索笔刷库不需要 ZBrush 运行，甚至不需要安装。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我的 ZBrush 笔刷存在哪里？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在 ZBrush 2026.1 及以后，它们位于每个用户自己的资产目录里。具体路径见 <a href=\"zbrush-2026-asset-directory.html\">ZBrush 2026.1 目录变更指南</a>。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "笔刷重复显示了两次？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这是 V1.0 因扫描目录嵌套导致的缺陷（同一个笔刷同时出现在父目录和子目录下）。V1.1 会自动过滤嵌套路径并按文件路径去重。如果仍有重复，请在设置里重新扫描。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SculptBox 会修改或移动我的笔刷文件吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。SculptBox 把你的笔刷目录视为只读，从不移动、改名或修改原始的 <code>.ZBP</code> / <code>.ZBR</code> 文件。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SculptBox 会上传数据吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "唯一的网络访问是可选的更新检查，且只发送请求本身。可在 <strong>设置 → 更新</strong> 里关闭。你的笔刷库和文件名不会离开本机。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Alpha、材质、贴图也能管吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。SculptBox 会索引笔刷、Alpha、材质和贴图，并各自归类。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "macOS 提示应用已损坏，打不开。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "那是未签名应用的提示，不是文件损坏。执行 <code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> 即可 —— 详见<a href=\"download.html\">下载页</a>。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么卸载 SculptBox？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果部署过 ZBrush 桥接，请先在 <strong>设置 → 插件</strong> 里卸载。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="faq.html">English</a><a href="faq.zh.html">中文</a><a href="faq.ja.html">日本語</a><a href="faq.ko.html">한국어</a>
+<a href="index.html#features">功能</a>
+<a href="faq.html">常见问题</a>
+<a href="changelog.html">更新日志</a>
+<a href="about.html">关于</a>
+<a href="download.html" class="nav-dl">下载</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; 常见问题</div>
+
+<section class="page-head"><div class="container">
+<h1>常见问题</h1>
+</div></section>
+
+<section class="prose"><div class="container">
+<h2></h2>
+<div class="faq-item"><h3>SculptBox 免费吗？</h3><p>免费。macOS 上可免费下载与使用；<strong>Windows 版本即将完成并发布</strong>。</p></div>
+<div class="faq-item"><h3>支持哪些 ZBrush 版本？</h3><p>浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它走 ZBrush 的 Python 桥接。</p></div>
+<div class="faq-item"><h3>没装 ZBrush 能用吗？</h3><p>可以。缩略图是从 <code>.ZBP</code> 文件原生解析的，所以浏览和搜索笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
+<div class="faq-item"><h3>我的 ZBrush 笔刷存在哪里？</h3><p>在 ZBrush 2026.1 及以后，它们位于每个用户自己的资产目录里。具体路径见 <a href="zbrush-2026-asset-directory.html">ZBrush 2026.1 目录变更指南</a>。</p></div>
+<div class="faq-item"><h3>笔刷重复显示了两次？</h3><p>这是 V1.0 因扫描目录嵌套导致的缺陷（同一个笔刷同时出现在父目录和子目录下）。V1.1 会自动过滤嵌套路径并按文件路径去重。如果仍有重复，请在设置里重新扫描。</p></div>
+<div class="faq-item"><h3>SculptBox 会修改或移动我的笔刷文件吗？</h3><p>不会。SculptBox 把你的笔刷目录视为只读，从不移动、改名或修改原始的 <code>.ZBP</code> / <code>.ZBR</code> 文件。</p></div>
+<div class="faq-item"><h3>SculptBox 会上传数据吗？</h3><p>唯一的网络访问是可选的更新检查，且只发送请求本身。可在 <strong>设置 → 更新</strong> 里关闭。你的笔刷库和文件名不会离开本机。</p></div>
+<div class="faq-item"><h3>Alpha、材质、贴图也能管吗？</h3><p>可以。SculptBox 会索引笔刷、Alpha、材质和贴图，并各自归类。</p></div>
+<div class="faq-item"><h3>macOS 提示应用已损坏，打不开。</h3><p>那是未签名应用的提示，不是文件损坏。执行 <code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> 即可 —— 详见<a href="download.html">下载页</a>。</p></div>
+<div class="faq-item"><h3>怎么卸载 SculptBox？</h3><p>从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果部署过 ZBrush 桥接，请先在 <strong>设置 → 插件</strong> 里卸载。</p></div>
+<p style="margin-top:24px;">还有问题？<a href="about.html">联系作者</a>。</p>
+<p style="margin-top:14px;"><a href="zbrush-2026-asset-directory.html"><strong>ZBrush 2026.1 asset directory guide &rarr;</strong></a></p>
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="faq.html">English</a><a href="faq.zh.html">中文</a><a href="faq.ja.html">日本語</a><a href="faq.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; 面向 macOS 与 Windows 的 ZBrush 笔刷管理工具。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

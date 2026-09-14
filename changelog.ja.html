@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SculptBox 更新履歴 — リリースノート</title>
+<meta name="description" content="SculptBox の各リリースを新しい順に：修正内容、追加機能、推奨バージョン。">
+<meta name="keywords" content="SculptBox 更新履歴, SculptBox リリースノート, ZBrush ブラシ管理ツール 更新">
+<meta property="og:title" content="SculptBox 更新履歴 — リリースノート">
+<meta property="og:description" content="SculptBox の各リリースを新しい順に：修正内容、追加機能、推奨バージョン。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sculptbox.net/changelog.ja.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/changelog.ja.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/changelog.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/changelog.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/changelog.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/changelog.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/changelog.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sculptbox.net/changelog.ja.html#page",
+      "name": "SculptBox 更新履歴 — リリースノート",
+      "description": "SculptBox の各リリースを新しい順に：修正内容、追加機能、推奨バージョン。",
+      "url": "https://sculptbox.net/changelog.ja.html",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="changelog.html">English</a><a href="changelog.zh.html">中文</a><a href="changelog.ja.html">日本語</a><a href="changelog.ko.html">한국어</a>
+<a href="index.html#features">機能</a>
+<a href="faq.html">よくある質問</a>
+<a href="changelog.html">更新履歴</a>
+<a href="about.html">このアプリ</a>
+<a href="download.html" class="nav-dl">ダウンロード</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; 更新履歴</div>
+
+<section class="page-head"><div class="container">
+<h1>リリースノート</h1>
+<p class="lede">SculptBox &mdash; 1.1.0</p>
+</div></section>
+
+<section class="prose"><div class="container">
+<div class="rel"><h3>V1.1.0</h3><div class="date">2026-09-14</div><ul><li><strong>コード保護</strong> — 8 つの中核モジュール（ZBP 解析・IPC・キャッシュ・プラグイン配置）をネイティブコード化。バンドルに Python バイトコードを含みません。</li><li>スキャンフォルダの入れ子による大量のブラシ重複を修正（10,676 → 6,482 件）。</li><li>お気に入りスターが更新されない不具合（偶数番号が色変わらない／一括削除後に残る）。</li><li>リストウィジェットのクリア時にクラッシュ。</li><li>バックグラウンド処理の実行中に終了するとクラッシュ。</li><li>パッケージ版でインポートが失敗（28 か所）。</li><li>バックアップファイルがソースコードをバンドルへ持ち込んでいた。</li><li><strong>新機能：</strong>設定に「キャッシュを削除」ボタン（4 言語）。</li><li><strong>新機能：</strong>入れ子のスキャンパスを自動除外。</li></ul></div>
+<div class="rel"><h3>V1.0.0</h3><div class="date">2026-05-24</div><ul><li>最初の公開リリース。</li><li><code>.ZBP</code> から直接解析した実サムネイル付きのブラシライブラリ索引。</li><li>即時検索、タグ、お気に入り、カテゴリ。</li><li>IPC ブリッジ経由で ZBrush へ送信（一括送信対応）。</li><li>4 言語：English / 中文 / 日本語 / 한국어。</li></ul></div>
+<p style="margin-top:8px;"><a href="download.html"><strong>Download the latest version &rarr;</strong></a></p>
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="changelog.html">English</a><a href="changelog.zh.html">中文</a><a href="changelog.ja.html">日本語</a><a href="changelog.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; macOS / Windows 向け ZBrush ブラシ管理ツール。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

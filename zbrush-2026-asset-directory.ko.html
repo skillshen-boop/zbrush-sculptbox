@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZBrush 2026.1 에셋 디렉터리 변경 — 브러시는 어디로 갔나?</title>
+<meta name="description" content="ZBrush 2026.1 은 사용자 브러시를 단일 사용자 에셋 폴더로 옮겼습니다. 현재 정확한 위치, 되돌리는 방법, 다음에 잃지 않는 방법을 정리합니다.">
+<meta name="keywords" content="ZBrush 2026.1 에셋 디렉터리, ZBrush 브러시 위치, ZBrush 브러시 사라짐, ZBrush 브러시 저장 위치, ZStartUp BrushPresets, ZBRUSH_USER_ASSETS_DIR, ZBrush 브러시 관리">
+<meta property="og:title" content="ZBrush 2026.1 에셋 디렉터리 변경 — 브러시는 어디로 갔나?">
+<meta property="og:description" content="ZBrush 2026.1 은 사용자 브러시를 단일 사용자 에셋 폴더로 옮겼습니다. 현재 정확한 위치, 되돌리는 방법, 다음에 잃지 않는 방법을 정리합니다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.ko.html#article",
+      "headline": "ZBrush 2026.1 에셋 디렉터리 변경 — 브러시는 어디로 갔나?",
+      "description": "ZBrush 2026.1 은 사용자 브러시를 단일 사용자 에셋 폴더로 옮겼습니다. 현재 정확한 위치, 되돌리는 방법, 다음에 잃지 않는 방법을 정리합니다.",
+      "inLanguage": "ko",
+      "url": "https://sculptbox.net/zbrush-2026-asset-directory.ko.html",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.ko.html#faq",
+      "inLanguage": "ko",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ZBrush 2026.1 에서 브러시는 어디에 저장되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "사용자별 에셋 폴더입니다. macOS 는 /Users/[사용자]/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets, Windows 는 C:\\Users\\[사용자]\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets 입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush 설치 폴더에 브러시를 둘 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "없습니다. 2026.1 부터 ZBrush 는 애플리케이션 루트에 파일을 쓰지 않으며, 공용 ZBrushData(버전) 폴더도 더 이상 생성되지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "업그레이드 후 기존 브러시가 자동으로 로드되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "새 사용자 폴더의 ZStartUp 에 있는 것만 로드됩니다. 예전 설치 폴더나 공용 폴더에 남은 것은 나타나지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush 없이도 SculptBox 를 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가능합니다. 썸네일은 .ZBP 파일에서 직접 파싱하므로 ZBrush 실행이나 설치가 필요하지 않습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+<a href="index.html#features">기능</a>
+<a href="faq.html">자주 묻는 질문</a>
+<a href="changelog.html">업데이트</a>
+<a href="about.html">정보</a>
+<a href="download.html" class="nav-dl">다운로드</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; ZBrush 2026.1 에셋 디렉터리 변경</div>
+
+<section class="page-head"><div class="container">
+<h1>내 ZBrush 브러시는 어디로 갔나?</h1>
+<p class="lede">ZBrush 2026.1 은 사용자 에셋 저장 방식을 새로 만들었습니다. 업그레이드 후 커스텀 브러시, 알파, 매트리얼이 사라졌다면 이유는 이것입니다 — 아래는 되찾는 방법입니다.</p>
+</div></section>
+
+<section class="prose"><div class="container">
+
+<div class="callout"><p><strong>SculptBox 는 macOS 와 Windows 용 ZBrush 브러시 관리 도구로, 디스크에 «이미 있는 위치» 를 그대로 인덱싱합니다</strong> — ZBrush 가 폴더 구조를 또 바꿔도 브러시는 계속 찾을 수 있습니다.</p></div>
+
+<h2>2026.1 에서 실제로 바뀐 것</h2>
+<p>ZBrush 2026.1 은 흩어져 있던 에셋 위치를 «시스템 계정당 하나의 사용자 폴더» 로 교체했습니다. 예전에는 설치 폴더나 공용 폴더에 둘 수 있었지만, 이제는 한곳에 모아야 합니다.</p>
+
+<table class="tbl">
+<tr><th></th><th>2026.1 이전</th><th>2026.1 이후</th></tr>
+<tr><td><strong>macOS</strong></td><td><code>…/ZBrush (버전)/ZStartUp/…</code><br><code>Users/Shared/ZBrushData(버전)/</code></td><td><code>/Users/[사용자]/Library/Application Support/Maxon/ZBrush_[HashValue]/</code></td></tr>
+<tr><td><strong>Windows</strong></td><td><code>C:\Program Files\…\ZStartUp\…</code><br><code>Users/Public/Public Documents/</code></td><td><code>C:\Users\[사용자]\AppData\Roaming\Maxon\ZBrush_[HashValue]\</code></td></tr>
+</table>
+
+<p>실무에서 중요한 영향은 두 가지입니다:</p>
+<ul>
+<li>ZBrush 가 <strong>애플리케이션 폴더에 더 이상 파일을 쓰지 않습니다</strong> — 해당 경로는 이제 내부에서 읽기 전용입니다.</li>
+<li>예전 공용 <code>ZBrushData(버전)</code> 폴더가 <strong>더 이상 생성되지 않습니다</strong>. 거기 남긴 것은 읽히지 않습니다.</li>
+</ul>
+
+<h2>브러시가 지금 있는 곳</h2>
+<p>모든 것이 사용자 폴더 안 <code>ZStartUp</code> 아래에 있습니다:</p>
+<pre><code>[user assets]/
+└── ZStartUp/
+    ├── BrushPresets/    ← 커스텀 브러시 (.ZBP / .ZBR)
+    ├── Alphas/
+    ├── Materials/
+    ├── HotKeys/
+    └── …
+
+[user assets]/
+├── QuickSaves/
+├── LightBox/
+└── PluginData/</code></pre>
+
+<h2>브러시를 되찾는 방법</h2>
+<ol>
+<li><strong>Preferences → Asset Directory → Open Directory</strong> 를 엽니다. ZBrush 가 지금 쓰는 폴더가 바로 열리므로 추측할 필요가 없습니다.</li>
+<li>커스텀 파일을 해당 <code>ZStartUp/</code> 하위 폴더로 옮깁니다: 브러시 → <code>BrushPresets</code>, 알파 → <code>Alphas</code>, 매트리얼 → <code>Materials</code>.</li>
+<li>ZBrush 를 재시작합니다. Maxon 기본 에셋과 함께 로드됩니다.</li>
+<li>다른 드라이브, 서버, 동기화 폴더에 두고 싶다면 <strong>Preferences → Asset Directory → Change Location</strong> 또는 환경변수 <code>ZBRUSH_USER_ASSETS_DIR</code> 를 사용합니다. <strong>Reset to Default</strong> 로 되돌릴 수 있으며, 어느 쪽이든 ZBrush 재시작이 필요합니다.</li>
+</ol>
+
+<h2>왜 계속 반복되는가</h2>
+<p>ZBrush 메이저 릴리스는 거의 매번 무언가를 옮기거나 이름을 바꾸고, 그때마다 이미 갖고 있던 브러시를 찾느라 반나절이 사라집니다. 폴더 구조만으로 거대한 브러시 라이브러리를 관리하는 것은 한계가 있습니다 — 게다가 ZBrush 기본 브라우저에는 검색도, 태그도, 실제 썸네일도 없습니다.</p>
+<p>SculptBox 는 다른 방식을 씁니다: <strong>브러시 폴더를 지정하면 그 자리에서 인덱싱합니다</strong>. <code>.ZBP</code> 를 직접 파싱해 실제 썸네일을 보여주고, 즉시 검색 · 태그 · 즐겨찾기를 제공하며, 클릭 한 번으로 ZBrush 로 보냅니다 — ZBrush 를 실행할 필요도 없습니다.</p>
+<p>즉 다음에 Maxon 이 디렉터리를 또 바꿔도 라이브러리는 사라지지 않습니다. 애초에 ZBrush 폴더 구조에 묶여 있지 않기 때문입니다.</p>
+<p><a href="download.html">SculptBox 다운로드</a> · <a href="faq.html">자주 묻는 질문 보기</a></p>
+
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><h3>ZBrush 2026.1 에서 브러시는 어디에 저장되나요?</h3><p>사용자별 에셋 폴더입니다 — macOS <code>…/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets</code>, Windows <code>…\AppData\Roaming\Maxon\ZBrush_[HashValue]\ZStartUp\BrushPresets</code>.</p></div>
+<div class="faq-item"><h3>ZBrush 설치 폴더에 브러시를 둘 수 있나요?</h3><p>없습니다. 2026.1 부터 ZBrush 는 애플리케이션 루트에 쓰지 않으며, 공용 <code>ZBrushData(버전)</code> 폴더도 생성되지 않습니다.</p></div>
+<div class="faq-item"><h3>업그레이드 후 기존 브러시가 자동으로 로드되나요?</h3><p>새 사용자 폴더의 <code>ZStartUp</code> 에 있는 것만 로드됩니다. 예전 설치 폴더나 공용 폴더에 남은 것은 나타나지 않습니다.</p></div>
+<div class="faq-item"><h3>ZBrush 없이도 SculptBox 를 쓸 수 있나요?</h3><p>가능합니다 — 썸네일은 <code>.ZBP</code> 에서 직접 파싱하므로 ZBrush 실행이나 설치가 필요하지 않습니다.</p></div>
+
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; macOS 와 Windows 용 ZBrush 브러시 관리 도구。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>

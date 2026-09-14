@@ -4,59 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SculptBox - ZBrush ブラシ管理ツール | 3D アセット管理</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d0d; color: #e0e0e0; line-height: 1.6; }
-.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-nav { padding: 16px 0; border-bottom: 1px solid #222; }
-nav .container { display: flex; justify-content: space-between; align-items: center; }
-nav .logo-wrap { display: flex; align-items: center; gap: 10px; }
-nav .logo-wrap img { height: 68px; }
-nav .logo-wrap span { color: #FF7B00; font-size: 20px; font-weight: 700; }
-nav .nav-links a { color: #888; text-decoration: none; font-size: 14px; margin-left: 20px; }
-nav .nav-links a:visited { color: #888; }
-nav .nav-links a:hover { color: #FF7B00; }
-.nav-dl { background: #FF7B00; color: #0d0d0d !important; padding: 6px 16px; border-radius: 6px; font-weight: 600; margin-left: 20px; text-decoration: none; font-size: 14px; }
-.nav-dl:hover { background: #FF9823; }
-.hero { text-align: center; padding: 60px 0 40px; }
-.hero h2 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 12px; }
-.hero h2 span { color: #FF7B00; }
-.hero p { font-size: 16px; color: #888; max-width: 540px; margin: 0 auto 28px; }
-.btn { display: inline-block; background: #FF7B00; color: #0d0d0d; padding: 12px 36px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s; }
-.btn:hover { background: #FF9823; }
-.btn-ghost { background: transparent; color: #e0e0e0; border: 1px solid #333; margin-left: 10px; }
-.btn-ghost:hover { border-color: #FF7B00; }
-.hero-fact { font-size: 14px; color: #777; max-width: 660px; margin: 14px auto 0; }
-.sub-info { margin-top: 10px; font-size: 13px; color: #555; }
-.sub-info a { color: #888; text-decoration: none; }
-.sub-info a:hover { color: #FF7B00; }
-.video-wrap { margin: 32px auto; max-width: 800px; border-radius: 12px; overflow: hidden; border: 1px solid #222; }
-.video-wrap video { width: 100%; display: block; }
-.features { padding: 60px 0; }
-.features h3 { font-size: 26px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 40px; }
-.feat-card { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; margin-bottom: 20px; overflow: hidden; display: flex; align-items: center; }
-.feat-card .feat-img { flex: 0 0 45%; max-width: 45%; }
-.feat-card .feat-img img { width: 100%; display: block; }
-.feat-card .feat-text { flex: 1; padding: 28px; }
-.feat-card .feat-text h4 { color: #FF7B00; font-size: 18px; margin-bottom: 8px; }
-.feat-card .feat-text p { font-size: 14px; color: #888; line-height: 1.7; }
-.feat-card.reverse { flex-direction: row-reverse; }
-.cta { text-align: center; padding: 60px 0; border-top: 1px solid #222; }
-.cta h3 { font-size: 24px; color: #fff; margin-bottom: 20px; }
-footer { text-align: center; padding: 32px 0; color: #555; font-size: 13px; }
-footer .langs { margin-bottom: 16px; }
-footer .langs a { color: #888; text-decoration: none; margin: 0 8px; font-size: 13px; }
-footer .langs a:hover { color: #FF7B00; }
-footer a { color: #888; text-decoration: none; }
-footer a:hover { color: #FF7B00; }
-nav .nav-links a:visited, .sub-info a:visited, footer a:visited { color: #888; }
-nav .nav-links a:hover, .sub-info a:hover, footer a:hover { color: #FF7B00; }
-@media (max-width: 640px) {
-  .hero h2 { font-size: 26px; }
-  .feat-card { flex-direction: column !important; }
-  .feat-card .feat-img { flex: none; max-width: 100%; }
-}
-</style>
+<link rel="stylesheet" href="site.css">
 
 <meta name="title" content="SculptBox - ZBrush ブラシ管理ツール | 3D アセット管理">
 <meta name="description" content="SculptBox は数千の ZBrush ブラシを管理。検索、タグ、サムネイル、ワンクリックで ZBrush に送信。無料ダウンロード。">
@@ -146,12 +94,12 @@ nav .nav-links a:hover, .sub-info a:hover, footer a:hover { color: #FF7B00; }
 <nav><div class="container">
 <div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
 <div class="nav-links">
-<a href="/">English</a>
-<a href="index.zh.html">中文</a>
-<a href="index.ja.html">日本語</a>
-<a href="index.ko.html">한국어</a>
-<a href="#features">Features</a>
-<a href="https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest" class="nav-dl">Download</a>
+<a href="index.html">English</a><a href="index.zh.html">中文</a><a href="index.ja.html">日本語</a><a href="index.ko.html">한국어</a>
+<a href="#features">機能</a>
+<a href="faq.html">よくある質問</a>
+<a href="changelog.html">更新履歴</a>
+<a href="about.html">このアプリ</a>
+<a href="download.html" class="nav-dl">ダウンロード</a>
 </div>
 </div></nav>
 
@@ -228,6 +176,14 @@ nav .nav-links a:hover, .sub-info a:hover, footer a:hover { color: #FF7B00; }
 
 </div></section>
 
+<section class="features" id="guide"><div class="container">
+<h3>ZBrush 2026.1 でアセットフォルダ構成が変更</h3>
+<div class="callout">
+<p>カスタムブラシは新しいユーザーディレクトリへ移動しました。現在の場所と復旧方法をまとめています。</p>
+<p style="margin-top:10px;"><a href="zbrush-2026-asset-directory.html"><strong>ガイドを読む &rarr;</strong></a></p>
+</div>
+</div></section>
+
 <section class="cta"><div class="container">
 <h3>ブラシ管理を始めましょう</h3>
 <a href="https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest" class="btn">無料ダウンロード</a>
@@ -236,10 +192,7 @@ nav .nav-links a:hover, .sub-info a:hover, footer a:hover { color: #FF7B00; }
 
 <footer><div class="container">
 <div class="langs">
-<a href="index.html">English</a>
-<a href="index.zh.html">中文</a>
-<a href="index.ja.html">日本語</a>
-<a href="index.ko.html">한국어</a>
+<a href="index.html">English</a><a href="index.zh.html">中文</a><a href="index.ja.html">日本語</a><a href="index.ko.html">한국어</a>
 </div>
 <p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a></p>
 </div></footer>

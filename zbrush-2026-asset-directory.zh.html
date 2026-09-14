@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZBrush 2026.1 目录变更 —— 我的笔刷去哪了？</title>
+<meta name="description" content="ZBrush 2026.1 把所有用户笔刷搬进了单一的用户资产目录。这里说明笔刷现在的确切位置、怎么搬回去，以及下次怎么不再丢。">
+<meta name="keywords" content="ZBrush 2026.1 目录变更, zbrush 笔刷不见了, zbrush 笔刷路径在哪, ZBrush 笔刷存放位置, ZStartUp BrushPresets, ZBRUSH_USER_ASSETS_DIR, zbrush 笔刷丢失, ZBrush 笔刷管理">
+<meta property="og:title" content="ZBrush 2026.1 目录变更 —— 我的笔刷去哪了？">
+<meta property="og:description" content="ZBrush 2026.1 把所有用户笔刷搬进了单一的用户资产目录。这里说明笔刷现在的确切位置、怎么搬回去，以及下次怎么不再丢。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<meta property="og:image" content="https://sculptbox.net/promo/assets/screenshot_main.png">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<link rel="alternate" hreflang="en" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<link rel="alternate" hreflang="zh" href="https://sculptbox.net/zbrush-2026-asset-directory.zh.html">
+<link rel="alternate" hreflang="ja" href="https://sculptbox.net/zbrush-2026-asset-directory.ja.html">
+<link rel="alternate" hreflang="ko" href="https://sculptbox.net/zbrush-2026-asset-directory.ko.html">
+<link rel="alternate" hreflang="x-default" href="https://sculptbox.net/zbrush-2026-asset-directory.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.zh.html#article",
+      "headline": "ZBrush 2026.1 目录变更 —— 我的笔刷去哪了？",
+      "description": "ZBrush 2026.1 把所有用户笔刷搬进了单一的用户资产目录。这里说明笔刷现在的确切位置、怎么搬回去，以及下次怎么不再丢。",
+      "inLanguage": "zh-Hans",
+      "url": "https://sculptbox.net/zbrush-2026-asset-directory.zh.html",
+      "publisher": {
+        "@id": "https://sculptbox.net/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sculptbox.net/zbrush-2026-asset-directory.zh.html#faq",
+      "inLanguage": "zh-Hans",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ZBrush 2026.1 的笔刷存在哪里？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "存在每个用户自己的资产目录里：macOS 是 /Users/[你]/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets，Windows 是 C:\\Users\\[你]\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "还能把笔刷放在 ZBrush 安装目录里吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。从 2026.1 起 ZBrush 不再往应用根目录写文件，旧的公共 ZBrushData(版本) 目录也不再创建。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "升级后旧笔刷会自动加载吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只有当它们在新的用户目录 ZStartUp 下才会。还留在旧安装目录或公共目录里的笔刷不会出现。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "没装 ZBrush 能用 SculptBox 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。缩略图是从 .ZBP 文件原生解析的，浏览笔刷库不需要 ZBrush 运行、也不需要安装。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container">
+<div class="logo-wrap"><img src="promo/assets/logo.png" alt="SculptBox"><span>SculptBox</span></div>
+<div class="nav-links">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+<a href="index.html#features">功能</a>
+<a href="faq.html">常见问题</a>
+<a href="changelog.html">更新日志</a>
+<a href="about.html">关于</a>
+<a href="download.html" class="nav-dl">下载</a>
+</div>
+</div></nav>
+
+<div class="container breadcrumb"><a href="index.html">SculptBox</a> &rsaquo; ZBrush 2026.1 资产目录变更</div>
+
+<section class="page-head"><div class="container">
+<h1>我的 ZBrush 笔刷去哪了？</h1>
+<p class="lede">ZBrush 2026.1 重建了用户资产的存放方式。如果你升级后发现自定义笔刷、Alpha 或材质不见了，原因就在这里 —— 下面是怎么找回它们。</p>
+</div></section>
+
+<section class="prose"><div class="container">
+
+<div class="callout"><p><strong>SculptBox 是一款面向 macOS 与 Windows 的 ZBrush 笔刷管理工具，它索引的是你磁盘上笔刷「本来就在的地方」</strong> —— 所以就算 ZBrush 再改一次目录结构，你的笔刷依然找得到。</p></div>
+
+<h2>2026.1 到底改了什么</h2>
+<p>ZBrush 2026.1 把原来分散的资产位置换成了「每个系统账户一个用户目录」。以前自定义内容可以放在安装目录或公共共享目录，现在必须全部放在一个地方。</p>
+
+<table class="tbl">
+<tr><th></th><th>2026.1 之前</th><th>2026.1 及以后</th></tr>
+<tr><td><strong>macOS</strong></td><td><code>…/ZBrush (版本)/ZStartUp/…</code><br><code>Users/Shared/ZBrushData(版本)/</code></td><td><code>/Users/[你]/Library/Application Support/Maxon/ZBrush_[HashValue]/</code></td></tr>
+<tr><td><strong>Windows</strong></td><td><code>C:\Program Files\…\ZStartUp\…</code><br><code>Users/Public/Public Documents/</code></td><td><code>C:\Users\[你]\AppData\Roaming\Maxon\ZBrush_[HashValue]\</code></td></tr>
+</table>
+
+<p>实际影响有两条：</p>
+<ul>
+<li>ZBrush <strong>不再往应用目录写文件</strong>了 —— 那个路径从 ZBrush 内部现在是只读的。</li>
+<li>旧的公共 <code>ZBrushData(版本)</code> 目录<strong>不再创建</strong>，所以留在那儿的笔刷不会被读取。</li>
+</ul>
+
+<h2>你的笔刷现在在哪</h2>
+<p>所有东西都在那个用户目录下的 <code>ZStartUp</code> 里：</p>
+<pre><code>[user assets]/
+└── ZStartUp/
+    ├── BrushPresets/    ← 自定义笔刷 (.ZBP / .ZBR)
+    ├── Alphas/
+    ├── Materials/
+    ├── HotKeys/
+    └── …
+
+[user assets]/
+├── QuickSaves/
+├── LightBox/
+└── PluginData/</code></pre>
+
+<h2>怎么把笔刷找回来</h2>
+<ol>
+<li>打开 <strong>Preferences → Asset Directory → Open Directory</strong>。这会直接打开 ZBrush 当前正在用的那个目录，不用猜。</li>
+<li>把自定义文件放进对应的 <code>ZStartUp/</code> 子目录：笔刷 → <code>BrushPresets</code>，Alpha → <code>Alphas</code>，材质 → <code>Materials</code>。</li>
+<li>重启 ZBrush。它们会和 Maxon 自带资产一起在启动时加载。</li>
+<li>想把目录放到别的盘、服务器或同步目录？用 <strong>Preferences → Asset Directory → Change Location</strong>，或设置环境变量 <code>ZBRUSH_USER_ASSETS_DIR</code>。<strong>Reset to Default</strong> 可以还原 —— 两种方式改完都要重启 ZBrush。</li>
+</ol>
+
+<h2>为什么会一再发生</h2>
+<p>几乎每个 ZBrush 大版本都会挪动或改名一些东西，而每次挪动都要花你一个下午去找本来就已经有的笔刷。仅靠目录结构管理庞大的笔刷库是撑不住的 —— 何况 ZBrush 自带的浏览器没有搜索、没有标签、也没有真正的缩略图。</p>
+<p>SculptBox 换了个思路：<strong>指向你的笔刷目录，它就地索引</strong>。它直接解析 <code>.ZBP</code> 文件显示真实缩略图，提供即时搜索、标签和收藏，还能一键把笔刷送进 ZBrush —— 而且做这些都不需要 ZBrush 在运行。</p>
+<p>也就是说，下次 Maxon 再动目录结构时，你的库不会「消失」：它从一开始就没和 ZBrush 的目录绑在一起。</p>
+<p><a href="download.html">下载 SculptBox</a> · <a href="faq.html">查看常见问题</a></p>
+
+<h2>常见问题</h2>
+<div class="faq-item"><h3>ZBrush 2026.1 的笔刷存在哪里？</h3><p>在每个用户自己的资产目录里 —— macOS <code>…/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets</code>，Windows <code>…\AppData\Roaming\Maxon\ZBrush_[HashValue]\ZStartUp\BrushPresets</code>。</p></div>
+<div class="faq-item"><h3>还能把笔刷放在 ZBrush 安装目录里吗？</h3><p>不能。从 2026.1 起 ZBrush 不再往应用根目录写文件，旧的公共 <code>ZBrushData(版本)</code> 目录也不再创建。</p></div>
+<div class="faq-item"><h3>升级后旧笔刷会自动加载吗？</h3><p>只有当它们在新的用户目录 <code>ZStartUp</code> 下才会。还留在旧安装目录或公共目录里的不会出现。</p></div>
+<div class="faq-item"><h3>没装 ZBrush 能用 SculptBox 吗？</h3><p>可以 —— 缩略图是从 <code>.ZBP</code> 文件原生解析的，浏览笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
+
+</div></section>
+
+<footer><div class="container">
+<div class="langs">
+<a href="zbrush-2026-asset-directory.html">English</a><a href="zbrush-2026-asset-directory.zh.html">中文</a><a href="zbrush-2026-asset-directory.ja.html">日本語</a><a href="zbrush-2026-asset-directory.ko.html">한국어</a>
+</div>
+<p>SculptBox &mdash; 面向 macOS 与 Windows 的 ZBrush 笔刷管理工具。</p>
+<p><a href="https://sculptbox.net">sculptbox.net</a> &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a> &middot; <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8">YouTube</a> &middot; <a href="https://www.bilibili.com/video/BV1fPG46BEvs/">Bilibili</a></p>
+</div></footer>
+
+</body>
+</html>
