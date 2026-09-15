@@ -9,7 +9,7 @@ nav .logo-wrap span { color: #FF7B00; font-size: 20px; font-weight: 700; }
 nav .nav-links a { color: #888; text-decoration: none; font-size: 14px; margin-left: 20px; }
 nav .nav-links a:visited { color: #888; }
 nav .nav-links a:hover { color: #FF7B00; }
-.nav-dl { background: #FF7B00; color: #0d0d0d !important; padding: 6px 16px; border-radius: 6px; font-weight: 600; margin-left: 20px; text-decoration: none; font-size: 14px; }
+.nav-dl { background: #FF7B00; color: #ffffff !important; padding: 6px 16px; border-radius: 6px; font-weight: 600; margin-left: 20px; text-decoration: none; font-size: 14px; }
 .nav-dl:hover { background: #FF9823; }
 .hero { text-align: center; padding: 60px 0 40px; }
 .hero h2 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 12px; }
@@ -63,7 +63,8 @@ nav .nav-links a:hover, .sub-info a:hover, footer a:hover { color: #FF7B00; }
 .prose p { font-size: 14px; color: #999; line-height: 1.85; margin-bottom: 12px; }
 .prose ul, .prose ol { margin: 0 0 14px 22px; }
 .prose li { font-size: 14px; color: #999; line-height: 1.85; }
-.prose a { color: #FF7B00; text-decoration: none; }
+/* :not(.btn) —— 否则这条会压过 .btn 的文字色，导致琥珀底上出现琥珀字（不可读） */
+.prose a:not(.btn) { color: #FF7B00; text-decoration: none; }
 .prose a:hover { text-decoration: underline; }
 .prose code { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 3px;
               padding: 1px 6px; font-size: 13px; color: #d0a050; }
