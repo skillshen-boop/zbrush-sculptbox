@@ -55,7 +55,7 @@ SculptBox indexes your entire brush library. Thousands of brushes, loaded in sec
 
 <img src="promo/assets/screenshot_search.png" width="700" alt="Search"/>
 
-- **Tags** — 10 auto-tags (Culpting, Curve, Insert, Utility...) + custom tags
+- **Tags** — 10 auto-tags (Sculpting, Curve, Insert, Utility...) + custom tags
 - **Favorites** — Star your most-used brushes, access them in one click
 
 <img src="promo/assets/screenshot_favorites.png" width="400" alt="Favorites"/>

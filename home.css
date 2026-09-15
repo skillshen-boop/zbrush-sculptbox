@@ -1,0 +1,416 @@
+/* ============================================================================
+   home.css — 首页专属样式（新模块用）
+   ============================================================================
+   只被 4 个 index*.html 引用。site.css 是全站共享的（24 个页面），
+   本文件不改动 site.css 的任何规则 —— 这样改动物理上不可能波及子页。
+
+   类名一律避开 site.css 既有类名（.container / .feat-card / .btn /
+   .hero / .features / .cta / footer …），新模块用新前缀：
+   .wrap / .band / .eyebrow / .rv-* / .scan-* / .mini-* / .pipe-*
+
+   设计 token 在这里定义一份，site.css 里仍是硬编码 —— 这是有意的：
+   把 site.css 全站变量化会改动 24 个页面的渲染，收益为零、风险不小。
+
+   ★ 装饰线一律用 "=" 不用 "-"：双连字符在 XML 注释里非法，
+     万一本文件被内联进 XML/SVG 上下文就会报 parse error。
+   ============================================================================ */
+
+:root {
+  /* 品牌色（数值与 site.css 的硬编码一致） */
+  --brand:      #FF7B00;
+  --brand-hi:   #FF9823;
+  --brand-dim:  rgba(255, 123, 0, .14);
+  --brand-glow: rgba(255, 123, 0, .06);
+
+  /* 表面层次 —— 用明度阶梯制造段落感。
+     ★ 不用 RadialZ 那种米色暖带：站上 12 张截图全是深色 UI，
+       贴在浅色底上会像浮着的黑方块；且品牌识别就是纯黑 + 橙。 */
+  --bg:        #0d0d0d;
+  --bg-alt:    #111;
+  --bg-deep:   #0a0a0a;
+  --surface:   #1a1a1a;
+  --surface-2: #141414;
+
+  --line:   #222;
+  --line-2: #2a2a2a;
+
+  --t1: #fff;  --t2: #e0e0e0;  --t3: #aaa;
+  --t4: #888;  --t5: #666;     --t6: #555;
+
+  --r: 12px;  --r-s: 8px;  --r-xs: 6px;
+  --wrap: 1080px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* 新模块的容器，比 site.css 的 .container(960px) 宽 —— marquee 要通栏、
+   三栏演示要排得开。★ 不改 .container，24 个页面在用它。 */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+/* ── 段落带 ────────────────────────────────────────────────────────────── */
+.band { position: relative; padding: 76px 0; border-top: 1px solid var(--line); }
+.band--alt  { background: var(--bg-alt); }
+.band--deep { background: var(--bg-deep); }
+/* 顶部极淡的橙色辉光 —— 替代"浅色带"提供换段感 */
+.band::before {
+  content: ""; position: absolute; inset: -1px 0 auto 0; height: 320px;
+  background: radial-gradient(60% 100% at 50% 0, var(--brand-glow), transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font: 600 12px/1 var(--mono); letter-spacing: .14em;
+  text-transform: uppercase; color: var(--brand); margin-bottom: 14px;
+}
+.band h3 { font-size: 27px; font-weight: 800; color: var(--t1); margin-bottom: 10px; }
+.band .lede { font-size: 15px; color: var(--t4); max-width: 640px; margin-bottom: 32px; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   入场动画
+   ★ 默认全部可见；只有 html.js 存在时才隐藏待入场。
+     这样"关掉 JS / 爬虫 / 社交预览"看到的是完整内容，而不是一片空白 ——
+     一个零 JS 的站点不该因为加了动画就变成"关掉 JS 就瞎"。
+   ══════════════════════════════════════════════════════════════════════════ */
+html.js .reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--d, 0) * 70ms);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   评价墙（marquee）
+   ★★ .rv-track 里必须【恰好两份完全一致】的内容 —— rv-scroll 位移 -50%
+      靠这个成立。删掉一半卡片会让动画瞬移半屏。
+   ══════════════════════════════════════════════════════════════════════════ */
+.rv-viewport {
+  overflow: hidden; padding: 26px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.rv-track {
+  display: flex; gap: 16px; width: max-content;
+  animation: rv-scroll 46s linear infinite;
+  will-change: transform;
+}
+.rv-track + .rv-track { margin-top: 16px; }
+.rv-track--b { animation-direction: reverse; animation-duration: 58s; }
+@keyframes rv-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.rv-viewport:hover .rv-track { animation-play-state: paused; }
+
+.rv {
+  flex: 0 0 320px; display: flex; flex-direction: column; gap: 14px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 18px 20px;
+  transition: transform .28s cubic-bezier(.2, .7, .3, 1),
+              border-color .28s, box-shadow .28s;
+}
+.rv:hover {
+  transform: translateY(-4px) scale(1.025);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 1px rgba(255, 123, 0, .30), 0 14px 34px rgba(255, 123, 0, .13);
+}
+.rv-quote { font-size: 14px; line-height: 1.7; color: var(--t2); flex: 1; }
+.rv-who { display: flex; align-items: center; gap: 12px; }
+.rv-avatar {
+  flex: 0 0 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 700 15px/1 var(--mono); color: var(--brand);
+  background: radial-gradient(circle at 32% 26%, hsl(var(--h, 26) 62% 26%), #151515 72%);
+  border: 1px solid rgba(255, 255, 255, .06);
+}
+.rv-meta b { display: block; font-size: 13px; font-weight: 600; color: var(--t1); }
+.rv-meta i { font-size: 11.5px; font-style: normal; color: var(--t5); }
+.rv-src {
+  align-self: flex-start;
+  font: 500 10.5px/1 var(--mono); letter-spacing: .06em;
+  color: var(--t5); border: 1px solid var(--line-2);
+  border-radius: 999px; padding: 4px 9px;
+}
+/* 明示说明行：一行字，不伤转化，但把"这是不是编的"这个疑虑直接拆掉 */
+.rv-note { font-size: 12.5px; color: var(--t4); max-width: 660px; margin-bottom: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .rv-track { animation-duration: 180s; }   /* 减速而非停止 */
+}
+
+@media (max-width: 900px) {
+  .rv { flex: 0 0 280px; }
+}
+/* 首页 FAQ —— 复用 site.css 的 .faq-item，只加个易读宽度 */
+.faq-list { max-width: 820px; }
+
+@media (max-width: 640px) {
+  .band { padding: 56px 0; }
+  .band h3 { font-size: 22px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Mini 悬浮窗演示（#mini）
+   ★ 用真实截图，不用 CSS 模拟界面 —— 规格与真机一致：
+     mini_l2 = 270×460、mini_l3 = 270×900（V1.4 的档位高度 L2=460 / L3=900）
+   ══════════════════════════════════════════════════════════════════════════ */
+.mini-stage {
+  position: relative; margin: 0 0 22px;
+  border: 1px solid var(--line); border-radius: var(--r);
+  overflow: hidden; background: var(--surface-2);
+}
+.mini-stage img { width: 100%; height: auto; display: block; }
+.mini-stage figcaption {
+  position: absolute; left: 16px; bottom: 14px;
+  font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--t3); background: rgba(10, 10, 10, .78);
+  border: 1px solid var(--line-2); border-radius: 999px; padding: 6px 12px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+
+.mini-levels {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 18px; align-items: end;   /* 底部对齐 —— 自然显出高度差，不需要额外标注 */
+}
+.lv {
+  margin: 0; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-s); padding: 12px; text-align: center;
+  transition: border-color .25s, transform .25s;
+}
+.lv:hover { border-color: var(--brand); transform: translateY(-3px); }
+.lv img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r-xs); margin-bottom: 10px;
+}
+.lv figcaption { font-size: 12px; color: var(--t4); }
+
+@media (max-width: 640px) {
+  .mini-levels { grid-template-columns: 1fr; }
+  .mini-stage figcaption {
+    position: static; display: block; border: 0; background: none; padding: 10px 12px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   笔刷库扫描演示（#scan）
+   ★ 站上没有真实笔刷缩略图素材 → 用 promo/assets/brush-glyphs.svg 的
+     6 个抽象符号复用出 24 格，靠旋转角 --r 与错峰 --i 错开重复感。
+   ★ 动画只在 .anim-scope.running 时跑（home.js 用 IntersectionObserver 控制），
+     离开视口即暂停 —— 页尾的无限动画不该在你读页首时空转。
+   ══════════════════════════════════════════════════════════════════════════ */
+/* 内联的笔刷符号定义容器 —— 不占空间、不可见，但留在 DOM 里供 <use> 引用。
+   ★ 不用外部 sprite 文件：实测 <use href="xxx.svg#id"> 在 Chromium 里
+     渲染不出来（getBBox 返回 0×0），内联才可靠。 */
+.glyph-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.scan {
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 18px; overflow: hidden;
+}
+.scan-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin-bottom: 14px; font: 500 11.5px/1 var(--mono); color: var(--t5);
+}
+.scan-path { color: var(--t4); }
+.scan-count b { color: var(--brand); font-weight: 700; }
+
+.scan-grid {
+  position: relative; display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 8px; margin-bottom: 14px;
+}
+.bt {
+  position: relative; aspect-ratio: 1; display: grid; place-items: center;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xs); color: var(--t6);
+  transition: border-color .3s, color .3s;
+}
+.bt svg { width: 58%; height: 58%; transform: rotate(var(--r, 0deg)); }
+
+/* 扫描线 */
+.scan-sweep {
+  position: absolute; inset: 0 auto 0 0; width: 18%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 123, 0, .22), transparent);
+}
+html.js .scan-sweep { animation: sc-sweep 9s ease-in-out infinite; }
+@keyframes sc-sweep {
+  0%        { transform: translateX(-100%); }
+  22%, 100% { transform: translateX(640%); }
+}
+
+/* 分格浮现：错峰变量 i 让相邻格依次出现，形成一道对角扫描波 */
+html.js .bt {
+  opacity: 0; transform: scale(.86);
+  animation: sc-pop 9s cubic-bezier(.2, .7, .3, 1) infinite;
+  animation-delay: calc(var(--i) * 110ms);
+}
+@keyframes sc-pop {
+  0%, 3%   { opacity: 0; transform: scale(.86); }
+  8%, 100% { opacity: 1; transform: scale(1); }
+}
+
+/* 搜索框逐字输入 */
+html.js .scan-search .q {
+  display: inline-block; overflow: hidden; white-space: nowrap; width: 0;
+  animation: sc-type 9s steps(4, end) infinite;
+}
+@keyframes sc-type { 0%, 34% { width: 0; } 40%, 100% { width: 4ch; } }
+html.js .scan-search .caret { animation: sc-blink 1s steps(1) infinite; }
+@keyframes sc-blink { 50% { opacity: 0; } }
+
+/* 未命中变暗。★ 打在 svg 上而非 .bt 上 —— 否则会和 sc-pop 抢 opacity 属性 */
+html.js .bt svg { animation: sc-dim 9s ease infinite; }
+@keyframes sc-dim {
+  0%, 56%  { opacity: 1; filter: none; }
+  66%, 92% { opacity: .12; filter: grayscale(1); }
+  100%     { opacity: 1; filter: none; }
+}
+
+/* 命中格亮橙 */
+html.js .bt.is-hit {
+  animation: sc-pop 9s cubic-bezier(.2, .7, .3, 1) infinite,
+             sc-hit 9s ease infinite;
+  animation-delay: calc(var(--i) * 110ms), 0s;
+}
+@keyframes sc-hit {
+  0%, 56%  { border-color: var(--line); box-shadow: none; }
+  66%, 92% { border-color: var(--brand);
+             box-shadow: 0 0 0 1px var(--brand), 0 0 18px var(--brand-dim); }
+  100%     { border-color: var(--line); box-shadow: none; }
+}
+html.js .bt.is-hit svg { animation: none; opacity: 1; color: var(--brand); }
+
+/* 搜索栏 */
+.scan-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--line-2);
+  border-radius: var(--r-xs); padding: 10px 12px;
+  font: 500 13px/1 var(--mono); color: var(--t2);
+}
+.scan-search .caret { width: 2px; height: 14px; background: var(--brand); margin-left: -4px; }
+.scan-search .hits {
+  margin-left: auto; font-size: 11px; color: var(--t5); letter-spacing: .04em;
+}
+
+/* 计数器。@property 支持度：Chrome 85+ / Safari 16.4+ / Firefox 128+。
+   不支持时数字离散跳变而非平滑增长 —— 优雅降级，不需要 fallback。 */
+@property --n { syntax: '<integer>'; inherits: false; initial-value: 0; }
+html.js .cnt { animation: sc-count 9s cubic-bezier(.15, .9, .2, 1) infinite; }
+html.js .cnt::after { counter-reset: n var(--n); content: counter(n); }
+@keyframes sc-count { 0% { --n: 0; } 26%, 100% { --n: 6482; } }
+
+/* 演示动画的启停：进视口才 running（home.js 加 .running） */
+html.js .anim-scope * { animation-play-state: paused; }
+html.js .anim-scope.running * { animation-play-state: running; }
+
+@media (max-width: 640px) {
+  .scan-grid { gap: 6px; }
+  .scan-bar { font-size: 10.5px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   发送到 ZBrush 链路演示（#send）
+   ★★ 两个包与三个节点的反应共用【同一个 7s 周期】，靠关键帧百分比对齐。
+      这里【不能】用 animation-delay 错峰 —— 那会让"包到达"和"节点反应"
+      对不上时刻，看起来就是不同步。扫描演示才用 delay 错峰（那里要的正是波）。
+   ══════════════════════════════════════════════════════════════════════════ */
+.pipe {
+  display: grid; grid-template-columns: auto 1fr auto 1fr auto;
+  align-items: center; gap: 0;
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 26px 22px;
+}
+
+.pipe-node {
+  margin: 0; display: flex; flex-direction: column; align-items: center;
+  gap: 8px; justify-self: center;
+}
+.pipe-node img {
+  width: 96px; height: auto; display: block;
+  border-radius: var(--r-xs); border: 1px solid var(--line-2);
+}
+.pipe-node figcaption {
+  font: 500 9.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--t5);
+}
+
+.pipe-node--mid {
+  width: 76px; height: 76px; border-radius: 50%;
+  border: 1px solid var(--line-2); background: var(--surface);
+  justify-content: center; gap: 3px;
+}
+.pipe-node--mid b { font: 700 13px/1 var(--mono); color: var(--t2); }
+.pipe-node--mid small {
+  font: 500 9px/1 var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--t5);
+}
+
+.pipe-node--zb {
+  width: 76px; height: 76px; border-radius: var(--r-s);
+  border: 1px dashed var(--line-2); background: var(--surface);
+  justify-content: center;
+}
+.zb-glyph { width: 34px; height: 34px; color: var(--t6); }
+.pipe-node--zb .ok {
+  font: 600 9px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--brand); opacity: 0;
+}
+
+/* 连线：虚线管道 */
+.pipe-wire {
+  position: relative; height: 2px; width: 100%; align-self: center;
+  background: repeating-linear-gradient(90deg,
+    var(--line-2) 0 6px, transparent 6px 12px);
+}
+
+/* 数据包 */
+.packet {
+  position: absolute; top: 50%; margin-top: -6px; left: 0;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--brand); box-shadow: 0 0 14px var(--brand);
+}
+html.js .pk1 { animation: pk1 7s cubic-bezier(.4, 0, .2, 1) infinite; }
+html.js .pk2 { animation: pk2 7s cubic-bezier(.4, 0, .2, 1) infinite; }
+@keyframes pk1 {
+  0%, 4%    { left: 0; opacity: 0; transform: scale(.5); }
+  8%        { opacity: 1; transform: scale(1); }
+  22%       { left: calc(100% - 12px); opacity: 1; }
+  27%, 100% { left: calc(100% - 12px); opacity: 0; }
+}
+@keyframes pk2 {
+  0%, 26%   { left: 0; opacity: 0; transform: scale(.5); }
+  30%       { opacity: 1; transform: scale(1); }
+  44%       { left: calc(100% - 12px); opacity: 1; }
+  49%, 100% { left: calc(100% - 12px); opacity: 0; }
+}
+
+/* 节点反应：时刻与包到达对齐（同一 7s 时间轴） */
+html.js .pipe-node--mid { animation: mid-hit 7s ease infinite; }
+@keyframes mid-hit {
+  0%, 20%   { border-color: var(--line-2); box-shadow: none; }
+  24%, 30%  { border-color: var(--brand); box-shadow: 0 0 20px var(--brand-dim); }
+  36%, 100% { border-color: var(--line-2); box-shadow: none; }
+}
+html.js .zb-glyph { animation: zb-get 7s ease infinite; }
+@keyframes zb-get {
+  0%, 42%   { opacity: .25; transform: scale(.8); color: var(--t6); }
+  48%, 86%  { opacity: 1; transform: scale(1); color: var(--brand); }
+  92%, 100% { opacity: .25; transform: scale(.8); color: var(--t6); }
+}
+html.js .pipe-node--zb .ok { animation: ok-in 7s ease infinite; }
+@keyframes ok-in {
+  0%, 46%   { opacity: 0; transform: translateY(4px); }
+  52%, 86%  { opacity: 1; transform: none; }
+  92%, 100% { opacity: 0; transform: translateY(4px); }
+}
+
+@media (max-width: 900px) {
+  /* 窄屏改为纵向：管道转 90° */
+  .pipe { grid-template-columns: 1fr; gap: 16px; }
+  .pipe-wire {
+    width: 2px; height: 40px; justify-self: center;
+    background: repeating-linear-gradient(180deg,
+      var(--line-2) 0 6px, transparent 6px 12px);
+  }
+}
+@media (max-width: 640px) {
+  .pipe { padding: 20px 16px; }
+}
