@@ -55,10 +55,11 @@
 
 <section class="page-head"><div class="container">
 <h1>リリースノート</h1>
-<p class="lede">SculptBox &mdash; 1.2.0</p>
+<p class="lede">SculptBox &mdash; 1.4.0</p>
 </div></section>
 
 <section class="prose"><div class="container">
+<div class="rel"><h3>V1.4.0</h3><div class="date">2026-09-15</div><ul><li><strong>新機能：</strong>「彫刻モード」—— ZBrush の隣に置けるコンパクトなフローティングウィンドウ。ビューポートを邪魔せずブラシを探して送れます。</li><li>メインウィンドウからボタンひとつで相互に切り替え。それぞれがサイズ・位置・段階を記憶します。</li><li><strong>新機能：</strong>左側のカテゴリバー —— すべてのアセット種別へワンクリック。アイコン＋頭文字、ホバーで正式名と件数。</li><li><strong>新機能：</strong>カードから直接送信 —— ブラシにホバーして Send。送信するとボタンがグレーからグリーンに。</li><li>検索・よく使うキーワード・並べ替えもフローティングウィンドウに搭載、デスクトップ版と同じ挙動。</li><li><strong>変更：</strong>配色を全面的に刷新。落ち着いた高コントラストのダークテーマに。</li><li>ZBrush の接続表示をシグナルアイコンに変更。起動中は緑で点滅します。</li></ul></div>
 <div class="rel"><h3>V1.2.0</h3><div class="date">2026-09-14</div><ul><li><strong>新機能：</strong>「このアプリについて」ページ —— 作者・連絡先・WeChat QR コード。</li><li><strong>新機能：</strong>アップデート確認 —— 設定 → アップデート で現在のバージョン確認、GitHub Releases の照会、バージョンごとのスキップが可能。</li><li>右クリックメニューが前回選択したブラシを送ってしまう問題を修正（カーソル下のブラシが対象に）。</li><li>ZBrush の状態表示が「接続済み / オフライン / 送信失敗」を明確に区別。</li><li>パッケージ版でアプリのロゴが欠けていた問題を修正（assets が同梱されていなかった）。</li><li><strong>プライバシー：</strong>以前のビルドは作者のローカルパスとサムネイルデータベースを同梱する可能性がありました。現在はクリーンです。</li><li><strong>サイト：</strong>4 言語 24 ページに拡充、sitemap / robots を追加。</li></ul></div>
 <div class="rel"><h3>V1.1.0</h3><div class="date">2026-09-14</div><ul><li><strong>コード保護</strong> — 8 つの中核モジュール（ZBP 解析・IPC・キャッシュ・プラグイン配置）をネイティブコード化。バンドルに Python バイトコードを含みません。</li><li>スキャンフォルダの入れ子による大量のブラシ重複を修正（10,676 → 6,482 件）。</li><li>お気に入りスターが更新されない不具合（偶数番号が色変わらない／一括削除後に残る）。</li><li>リストウィジェットのクリア時にクラッシュ。</li><li>バックグラウンド処理の実行中に終了するとクラッシュ。</li><li>パッケージ版でインポートが失敗（28 か所）。</li><li>バックアップファイルがソースコードをバンドルへ持ち込んでいた。</li><li><strong>新機能：</strong>設定に「キャッシュを削除」ボタン（4 言語）。</li><li><strong>新機能：</strong>入れ子のスキャンパスを自動除外。</li></ul></div>
 <div class="rel"><h3>V1.0.0</h3><div class="date">2026-05-24</div><ul><li>最初の公開リリース。</li><li><code>.ZBP</code> から直接解析した実サムネイル付きのブラシライブラリ索引。</li><li>即時検索、タグ、お気に入り、カテゴリ。</li><li>IPC ブリッジ経由で ZBrush へ送信（一括送信対応）。</li><li>4 言語：English / 中文 / 日本語 / 한국어。</li></ul></div>
