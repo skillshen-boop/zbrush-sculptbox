@@ -197,11 +197,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
    ★ 动画只在 .anim-scope.running 时跑（home.js 用 IntersectionObserver 控制），
      离开视口即暂停 —— 页尾的无限动画不该在你读页首时空转。
    ══════════════════════════════════════════════════════════════════════════ */
-/* 内联的笔刷符号定义容器 —— 不占空间、不可见，但留在 DOM 里供 <use> 引用。
-   ★ 不用外部 sprite 文件：实测 <use href="xxx.svg#id"> 在 Chromium 里
-     渲染不出来（getBBox 返回 0×0），内联才可靠。 */
-.glyph-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-
 .scan {
   background: var(--surface-2); border: 1px solid var(--line);
   border-radius: var(--r); padding: 18px; overflow: hidden;
@@ -218,12 +213,16 @@ html.js .reveal.in { opacity: 1; transform: none; }
   gap: 8px; margin-bottom: 14px;
 }
 .bt {
-  position: relative; aspect-ratio: 1; display: grid; place-items: center;
+  position: relative; aspect-ratio: 1; display: block;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--r-xs); color: var(--t6);
-  transition: border-color .3s, color .3s;
+  border-radius: var(--r-xs); overflow: hidden;
+  transition: border-color .3s;
 }
-.bt svg { width: 58%; height: 58%; transform: rotate(var(--r, 0deg)); }
+/* 真实笔刷缩略图（软件缓存里的 96×96 PNG）—— 不用 contain 会裁切，
+   且绝不加旋转：那是真实预览图，转了就假了 */
+.bt img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
 
 /* 扫描线 */
 .scan-sweep {
@@ -256,8 +255,8 @@ html.js .scan-search .q {
 html.js .scan-search .caret { animation: sc-blink 1s steps(1) infinite; }
 @keyframes sc-blink { 50% { opacity: 0; } }
 
-/* 未命中变暗。★ 打在 svg 上而非 .bt 上 —— 否则会和 sc-pop 抢 opacity 属性 */
-html.js .bt svg { animation: sc-dim 9s ease infinite; }
+/* 未命中变暗。★ 打在 img 上而非 .bt 上 —— 否则会和 sc-pop 抢 opacity 属性 */
+html.js .bt img { animation: sc-dim 9s ease infinite; }
 @keyframes sc-dim {
   0%, 56%  { opacity: 1; filter: none; }
   66%, 92% { opacity: .12; filter: grayscale(1); }
@@ -276,7 +275,7 @@ html.js .bt.is-hit {
              box-shadow: 0 0 0 1px var(--brand), 0 0 18px var(--brand-dim); }
   100%     { border-color: var(--line); box-shadow: none; }
 }
-html.js .bt.is-hit svg { animation: none; opacity: 1; color: var(--brand); }
+html.js .bt.is-hit img { animation: none; opacity: 1; filter: brightness(1.18); }
 
 /* 搜索栏 */
 .scan-search {
@@ -348,7 +347,7 @@ html.js .anim-scope.running * { animation-play-state: running; }
   border: 1px dashed var(--line-2); background: var(--surface);
   justify-content: center;
 }
-.zb-glyph { width: 34px; height: 34px; color: var(--t6); }
+.zb-thumb { width: 40px; height: 40px; object-fit: contain; border-radius: 4px; }
 .pipe-node--zb .ok {
   font: 600 9px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
   color: var(--brand); opacity: 0;
