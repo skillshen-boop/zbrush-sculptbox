@@ -113,6 +113,16 @@ html.js .reveal.in { opacity: 1; transform: none; }
   box-shadow: 0 0 0 1px rgba(255, 123, 0, .30), 0 14px 34px rgba(255, 123, 0, .13);
 }
 .rv-quote { font-size: 14px; line-height: 1.7; color: var(--t2); flex: 1; }
+
+/* 卡片顶部一行：五星 + 语境徽章 */
+.rv-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+/* 内联图标定义容器（五星的 symbol）—— 不占位、不可见 */
+.icon-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.rv-stars { display: inline-flex; gap: 3px; color: var(--brand); }
+.rv-stars svg { width: 13px; height: 13px; display: block; }
 .rv-who { display: flex; align-items: center; gap: 12px; }
 .rv-avatar {
   flex: 0 0 34px; height: 34px; border-radius: 50%;
@@ -124,10 +134,9 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .rv-meta b { display: block; font-size: 13px; font-weight: 600; color: var(--t1); }
 .rv-meta i { font-size: 11.5px; font-style: normal; color: var(--t5); }
 .rv-src {
-  align-self: flex-start;
   font: 500 10.5px/1 var(--mono); letter-spacing: .06em;
   color: var(--t5); border: 1px solid var(--line-2);
-  border-radius: 999px; padding: 4px 9px;
+  border-radius: 999px; padding: 4px 9px; white-space: nowrap;
 }
 /* 明示说明行：一行字，不伤转化，但把"这是不是编的"这个疑虑直接拆掉 */
 .rv-note { font-size: 12.5px; color: var(--t4); max-width: 660px; margin-bottom: 10px; }
@@ -176,6 +185,31 @@ html.js .reveal.in { opacity: 1; transform: none; }
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 52px 26px; align-items: start;
 }
+
+/* ── 前 4 张宽图：滚动时叠成"牌堆" ──────────────────────────────────────
+   机制借自 radialz 的 STEP 卡片：position: sticky + 递减的 top 让每张卡
+   停在不同高度、依次叠上来。滚动时由 home.js 给"被盖住的那张"加
+   scale / translateY / opacity，做出纵深。
+   ★ 布局仍是我们自己的上下结构（文字在上、图在下），只借动效。 */
+.feat-stack {
+  display: flex; flex-direction: column; gap: 28px; margin-bottom: 56px;
+}
+.feat-item--stack {
+  position: sticky;
+  top: calc(78px + var(--i, 0) * 20px);
+  z-index: calc(10 + var(--i, 0));
+  /* 必须是不透明底，否则下面的卡会透出来，叠不出牌堆感 */
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 26px;
+  transform-origin: center top;
+  will-change: transform, opacity;
+  box-shadow: 0 34px 74px -44px rgba(0, 0, 0, .95);
+}
+/* 牌堆里的图压一压高度，保证卡片整体不高于视口，堆叠才看得见 */
+.feat-item--stack .shot img { max-height: 48vh; object-fit: cover; }
+.feat-item--stack .shot { display: flex; justify-content: center; }
 
 .feat-item { margin: 0; display: flex; flex-direction: column; gap: 16px; }
 .feat-item--wide { grid-column: span 2; }
@@ -256,6 +290,9 @@ html:not(.js) h3.reveal::after { transform: scaleX(1); }
   .feat-item:hover .shot img { transform: none; }
   h3.reveal::after { transition: none; transform: scaleX(1); }
   .hero::before { animation: none; }
+  /* 牌堆退化成普通堆叠 —— 不做滚动缩放/淡出 */
+  .feat-item--stack { position: static; transform: none !important; opacity: 1 !important; }
+  /* 同理，marquee 与演示动画已在各自段落处理 */
 }
 
 @media (max-width: 760px) {

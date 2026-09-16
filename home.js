@@ -41,6 +41,38 @@
     if (ioRun) { ioRun.observe(el); } else { el.classList.add('running'); }
   });
 
+  /* ── Features 前 4 张：滚动时叠成"牌堆" ─────────────────────────────
+     机制借自 radialz 的 STEP 卡片：卡片在 CSS 里是 position: sticky +
+     递减的 top，这里负责给"正被下一张盖住的那张"做纵深 ——
+     缩小 5%、上移 10px、淡到 50%。
+     只监听 scroll 并用 rAF 节流，一帧只算一次。 */
+  var stack = document.querySelector('.feat-stack');
+  if (stack) {
+    var cards = [].slice.call(stack.querySelectorAll('.feat-item--stack'));
+    var raf = 0;
+    var updateDeck = function () {
+      raf = 0;
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i], next = cards[i + 1];
+        var p = 0;
+        if (next) {
+          var cr = card.getBoundingClientRect();
+          var nr = next.getBoundingClientRect();
+          var range = cr.height || 1;
+          p = Math.max(0, Math.min(1, 1 - (nr.top - cr.top) / range));
+        }
+        card.style.transform =
+          'translateY(' + (-p * 10).toFixed(2) + 'px) scale(' +
+          (1 - 0.05 * p).toFixed(4) + ')';
+        card.style.opacity = String(1 - 0.5 * p);
+      }
+    };
+    var onScroll = function () { if (!raf) { raf = requestAnimationFrame(updateDeck); } };
+    updateDeck();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  }
+
   /* ★ 兜底：IO 若因任何原因没触发 —— 页面在后台标签页被浏览器节流
      （实测：visibilityState 为 hidden 时 IO 完全不回调）、老浏览器、
      或扩展干扰 —— 内容不能就这么留在 opacity:0 上变成一片空白。
