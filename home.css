@@ -149,6 +149,44 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
+   功能卡（#features）
+   ★ 文字在上、图片在下 —— 不再是 site.css 那种左右分栏。图片尽量放大，
+     让客户能看清切图里的细节。
+   ★ 全宽与半宽（两联）混排：宽图独占一行、方图半宽并排。哪些走全宽由
+     _home.py 的 _CARD_WIDE 决定，依据是每张切图的真实宽高比。
+   ══════════════════════════════════════════════════════════════════════════ */
+.feat-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 52px 26px; align-items: start;
+}
+
+.feat-item { margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.feat-item--wide { grid-column: span 2; }
+/* 半宽对里的第二张轻微下移，做出错落感 */
+.feat-item--offset { margin-top: 44px; }
+
+.feat-item figcaption h4 {
+  font-size: 19px; font-weight: 700; color: var(--brand); margin-bottom: 8px;
+}
+.feat-item figcaption p {
+  font-size: 14.5px; color: var(--t4); line-height: 1.75; margin: 0;
+  max-width: 760px;        /* 全宽时别把文字拉成一条长线，影响阅读 */
+}
+
+.feat-item img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r-s); border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+@media (max-width: 760px) {
+  .feat-grid { grid-template-columns: 1fr; gap: 40px; }
+  .feat-item--wide { grid-column: auto; }
+  .feat-item--offset { margin-top: 0; }   /* 窄屏取消错位，避免看起来像没对齐 */
+  .feat-item figcaption h4 { font-size: 17px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
    Mini 悬浮窗演示（#mini）
    ★ 用真实截图，不用 CSS 模拟界面 —— 规格与真机一致：
      mini_l2 = 270×460、mini_l3 = 270×900（V1.4 的档位高度 L2=460 / L3=900）
