@@ -51,7 +51,7 @@
           "name": "어떤 ZBrush 버전을 지원하나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "라이브러리 탐색은 ZBrush 와 무관하게 동작합니다. <strong>Send to ZBrush</strong> 기능은 ZBrush Python 브리지를 사용하므로 ZBrush 2026 이상이 필요합니다."
+            "text": "라이브러리 탐색은 ZBrush 와 무관하게 동작합니다. <strong>Send to ZBrush</strong> 기능은 Sculpt Bridge가 필요하므로 ZBrush 2026 이상이 필요합니다."
           }
         },
         {
@@ -115,7 +115,7 @@
           "name": "삭제하려면 어떻게 하나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "응용 프로그램에서 앱을 삭제한 뒤 캐시 폴더(macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>)도 지웁니다. ZBrush 브리지를 배포했다면 먼저 <strong>Settings → Plugin</strong> 에서 제거하세요."
+            "text": "응용 프로그램에서 앱을 삭제한 뒤 캐시 폴더(macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>)도 지웁니다. Sculpt Bridge를 배포했다면 먼저 <strong>Settings → Plugin</strong> 에서 제거하세요."
           }
         }
       ]
@@ -147,7 +147,7 @@
 <section class="prose"><div class="container">
 <h2></h2>
 <div class="faq-item"><h3>SculptBox 는 무료인가요?</h3><p>네. macOS 에서 무료로 다운로드하고 사용할 수 있습니다. <strong>Windows 버전도 곧 공개될 예정입니다</strong>.</p></div>
-<div class="faq-item"><h3>어떤 ZBrush 버전을 지원하나요?</h3><p>라이브러리 탐색은 ZBrush 와 무관하게 동작합니다. <strong>Send to ZBrush</strong> 기능은 ZBrush Python 브리지를 사용하므로 ZBrush 2026 이상이 필요합니다.</p></div>
+<div class="faq-item"><h3>어떤 ZBrush 버전을 지원하나요?</h3><p>라이브러리 탐색은 ZBrush 와 무관하게 동작합니다. <strong>Send to ZBrush</strong> 기능은 Sculpt Bridge가 필요하므로 ZBrush 2026 이상이 필요합니다.</p></div>
 <div class="faq-item"><h3>ZBrush 없이도 쓸 수 있나요?</h3><p>가능합니다. 썸네일은 <code>.ZBP</code> 파일에서 직접 파싱하므로 탐색·검색에 ZBrush 실행이나 설치가 필요하지 않습니다.</p></div>
 <div class="faq-item"><h3>ZBrush 브러시는 어디에 저장되나요?</h3><p>ZBrush 2026.1 이후에는 사용자별 에셋 폴더입니다. 정확한 경로는 <a href="zbrush-2026-asset-directory.html">2026.1 에셋 디렉터리 변경 가이드</a>를 보세요.</p></div>
 <div class="faq-item"><h3>브러시가 중복으로 표시됩니다.</h3><p>V1.0 에서 스캔 폴더 중첩이 원인이었던 결함입니다 (같은 브러시가 상위·하위 폴더 양쪽에 표시). V1.1 은 중첩 경로를 자동 제외하고 파일 경로로 중복을 제거합니다. 계속 보이면 설정에서 다시 스캔하세요.</p></div>
@@ -155,7 +155,7 @@
 <div class="faq-item"><h3>데이터를 전송하나요?</h3><p>통신은 선택적 업데이트 확인뿐이며, 보내는 것은 요청 자체뿐입니다. <strong>Settings → Update</strong> 에서 끌 수 있습니다. 브러시 라이브러리와 파일 이름은 외부로 나가지 않습니다.</p></div>
 <div class="faq-item"><h3>알파, 매트리얼, 텍스처도 관리하나요?</h3><p>네. 브러시·알파·매트리얼·텍스처를 인덱싱하고 각각 분류합니다.</p></div>
 <div class="faq-item"><h3>macOS 에서 «손상되어 열 수 없습니다» 라고 나옵니다.</h3><p>서명되지 않은 앱 경고이며 다운로드 손상이 아닙니다. <code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> 를 실행하세요 — 자세한 내용은 <a href="download.html">다운로드 페이지</a>에 있습니다.</p></div>
-<div class="faq-item"><h3>삭제하려면 어떻게 하나요?</h3><p>응용 프로그램에서 앱을 삭제한 뒤 캐시 폴더(macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>)도 지웁니다. ZBrush 브리지를 배포했다면 먼저 <strong>Settings → Plugin</strong> 에서 제거하세요.</p></div>
+<div class="faq-item"><h3>삭제하려면 어떻게 하나요?</h3><p>응용 프로그램에서 앱을 삭제한 뒤 캐시 폴더(macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>)도 지웁니다. Sculpt Bridge를 배포했다면 먼저 <strong>Settings → Plugin</strong> 에서 제거하세요.</p></div>
 <p style="margin-top:24px;">해결되지 않으면 <a href="about.html">제작자에게 연락</a>하세요.</p>
 <p style="margin-top:14px;"><a href="zbrush-2026-asset-directory.html"><strong>ZBrush 2026.1 asset directory guide &rarr;</strong></a></p>
 </div></section>

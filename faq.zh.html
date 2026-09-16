@@ -51,7 +51,7 @@
           "name": "支持哪些 ZBrush 版本？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它走 ZBrush 的 Python 桥接。"
+            "text": "浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它需要 Sculpt Bridge。"
           }
         },
         {
@@ -115,7 +115,7 @@
           "name": "怎么卸载 SculptBox？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果部署过 ZBrush 桥接，请先在 <strong>设置 → 插件</strong> 里卸载。"
+            "text": "从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果安装过 Sculpt Bridge，请先在 <strong>设置 → 插件</strong> 里卸载。"
           }
         }
       ]
@@ -147,7 +147,7 @@
 <section class="prose"><div class="container">
 <h2></h2>
 <div class="faq-item"><h3>SculptBox 免费吗？</h3><p>免费。macOS 上可免费下载与使用；<strong>Windows 版本即将完成并发布</strong>。</p></div>
-<div class="faq-item"><h3>支持哪些 ZBrush 版本？</h3><p>浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它走 ZBrush 的 Python 桥接。</p></div>
+<div class="faq-item"><h3>支持哪些 ZBrush 版本？</h3><p>浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它需要 Sculpt Bridge。</p></div>
 <div class="faq-item"><h3>没装 ZBrush 能用吗？</h3><p>可以。缩略图是从 <code>.ZBP</code> 文件原生解析的，所以浏览和搜索笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
 <div class="faq-item"><h3>我的 ZBrush 笔刷存在哪里？</h3><p>在 ZBrush 2026.1 及以后，它们位于每个用户自己的资产目录里。具体路径见 <a href="zbrush-2026-asset-directory.html">ZBrush 2026.1 目录变更指南</a>。</p></div>
 <div class="faq-item"><h3>笔刷重复显示了两次？</h3><p>这是 V1.0 因扫描目录嵌套导致的缺陷（同一个笔刷同时出现在父目录和子目录下）。V1.1 会自动过滤嵌套路径并按文件路径去重。如果仍有重复，请在设置里重新扫描。</p></div>
@@ -155,7 +155,7 @@
 <div class="faq-item"><h3>SculptBox 会上传数据吗？</h3><p>唯一的网络访问是可选的更新检查，且只发送请求本身。可在 <strong>设置 → 更新</strong> 里关闭。你的笔刷库和文件名不会离开本机。</p></div>
 <div class="faq-item"><h3>Alpha、材质、贴图也能管吗？</h3><p>可以。SculptBox 会索引笔刷、Alpha、材质和贴图，并各自归类。</p></div>
 <div class="faq-item"><h3>macOS 提示应用已损坏，打不开。</h3><p>那是未签名应用的提示，不是文件损坏。执行 <code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> 即可 —— 详见<a href="download.html">下载页</a>。</p></div>
-<div class="faq-item"><h3>怎么卸载 SculptBox？</h3><p>从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果部署过 ZBrush 桥接，请先在 <strong>设置 → 插件</strong> 里卸载。</p></div>
+<div class="faq-item"><h3>怎么卸载 SculptBox？</h3><p>从「应用程序」里删掉 App，再删掉缓存目录（macOS：<code>~/Library/Application Support/ZBrush4/SculptBox</code>）。如果安装过 Sculpt Bridge，请先在 <strong>设置 → 插件</strong> 里卸载。</p></div>
 <p style="margin-top:24px;">还有问题？<a href="about.html">联系作者</a>。</p>
 <p style="margin-top:14px;"><a href="zbrush-2026-asset-directory.html"><strong>ZBrush 2026.1 asset directory guide &rarr;</strong></a></p>
 </div></section>

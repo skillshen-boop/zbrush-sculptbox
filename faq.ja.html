@@ -51,7 +51,7 @@
           "name": "対応している ZBrush のバージョンは？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（ZBrush の Python ブリッジを使用するため）。"
+            "text": "ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（Sculpt Bridge が必要なため）。"
           }
         },
         {
@@ -115,7 +115,7 @@
           "name": "アンインストール方法は？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。ZBrush ブリッジを配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。"
+            "text": "アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。Sculpt Bridge を配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。"
           }
         }
       ]
@@ -147,7 +147,7 @@
 <section class="prose"><div class="container">
 <h2></h2>
 <div class="faq-item"><h3>SculptBox は無料ですか？</h3><p>はい。macOS では無料でダウンロード・利用できます。<strong>Windows 版もまもなく公開予定です</strong>。</p></div>
-<div class="faq-item"><h3>対応している ZBrush のバージョンは？</h3><p>ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（ZBrush の Python ブリッジを使用するため）。</p></div>
+<div class="faq-item"><h3>対応している ZBrush のバージョンは？</h3><p>ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（Sculpt Bridge が必要なため）。</p></div>
 <div class="faq-item"><h3>ZBrush がなくても使えますか？</h3><p>使えます。サムネイルは <code>.ZBP</code> から直接解析するため、閲覧・検索に ZBrush の起動もインストールも不要です。</p></div>
 <div class="faq-item"><h3>ZBrush のブラシはどこに保存されますか？</h3><p>ZBrush 2026.1 以降はユーザーごとのアセットフォルダです。正確なパスは<a href="zbrush-2026-asset-directory.html">2026.1 アセットディレクトリ変更ガイド</a>をご覧ください。</p></div>
 <div class="faq-item"><h3>ブラシが重複して表示されます。</h3><p>V1.0 でスキャンフォルダの入れ子が原因だった不具合です（同じブラシが親フォルダと子フォルダの両方に出る）。V1.1 では入れ子パスを自動で除外し、ファイルパスで重複排除します。改善しない場合は設定から再スキャンしてください。</p></div>
@@ -155,7 +155,7 @@
 <div class="faq-item"><h3>データを送信しますか？</h3><p>通信は任意のアップデート確認のみで、送信するのはリクエスト自体だけです。<strong>Settings → Update</strong> でオフにできます。ブラシライブラリやファイル名が外部に出ることはありません。</p></div>
 <div class="faq-item"><h3>アルファやマテリアル、テクスチャも扱えますか？</h3><p>はい。ブラシ・アルファ・マテリアル・テクスチャを索引し、それぞれ分類します。</p></div>
 <div class="faq-item"><h3>macOS で「壊れているため開けません」と出ます。</h3><p>未署名アプリの警告で、ダウンロードの破損ではありません。<code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> を実行してください — 詳細は<a href="download.html">ダウンロードページ</a>へ。</p></div>
-<div class="faq-item"><h3>アンインストール方法は？</h3><p>アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。ZBrush ブリッジを配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。</p></div>
+<div class="faq-item"><h3>アンインストール方法は？</h3><p>アプリケーションフォルダから削除し、キャッシュフォルダ（macOS: <code>~/Library/Application Support/ZBrush4/SculptBox</code>）も削除します。Sculpt Bridge を配置した場合は先に <strong>Settings → Plugin</strong> から削除してください。</p></div>
 <p style="margin-top:24px;">解決しない場合は<a href="about.html">作者に連絡</a>してください。</p>
 <p style="margin-top:14px;"><a href="zbrush-2026-asset-directory.html"><strong>ZBrush 2026.1 asset directory guide &rarr;</strong></a></p>
 </div></section>
