@@ -59,10 +59,19 @@
 
 .eyebrow {
   font: 600 12px/1 var(--mono); letter-spacing: .14em;
-  text-transform: uppercase; color: var(--brand); margin-bottom: 14px;
+  text-transform: uppercase; color: var(--brand); margin-bottom: 16px;
 }
-.band h3 { font-size: 27px; font-weight: 800; color: var(--t1); margin-bottom: 10px; }
-.band .lede { font-size: 15px; color: var(--t4); max-width: 640px; margin-bottom: 32px; }
+/* ★ 区块标题放大：原来 27px。radialz 的 section-head h2 是 clamp(40px,6vw,80px)，
+   我们容器更窄（1080 vs 1180），取一个不换行的上限。 */
+.band h3 {
+  font-size: clamp(31px, 4.1vw, 56px);
+  font-weight: 800; line-height: 1.06; letter-spacing: -0.035em;
+  color: var(--t1); margin-bottom: 14px;
+}
+.band .lede {
+  font-size: clamp(15px, 1.25vw, 17.5px);
+  line-height: 1.65; color: var(--t4); max-width: 680px; margin-bottom: 34px;
+}
 
 /* ══════════════════════════════════════════════════════════════════════════
    入场动画
@@ -162,7 +171,13 @@ html.js .reveal.in { opacity: 1; transform: none; }
      这里把 site.css 里 .hero h2 的样式原样复刻给 h1（不改 site.css，
      它被 24 个页面共用）。 */
 .hero-h1 {
-  font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 12px;
+  /* ★ 字号放大：原来固定 38px，按 radialz 的层级（他们 hero 是 clamp(76px,13vw,176px)）
+     取一个适配我们 1080px 容器的值。大 + 粗 + 紧排 = 他们那种"浮夸"的来源。 */
+  font-size: clamp(46px, 6.6vw, 92px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: #fff; margin-bottom: 18px;
   /* 入场：标题轻微上浮 + 字距收拢，做出"落定"的高级感 */
   animation: hero-in .9s cubic-bezier(.2, .7, .3, 1) both;
 }
@@ -170,9 +185,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .hero-h1 span, .hero-h1 .z { color: var(--brand); }
 @keyframes hero-in {
   from { opacity: 0; transform: translateY(14px); letter-spacing: .04em; }
-  to   { opacity: 1; transform: none; letter-spacing: normal; }
+  to   { opacity: 1; transform: none; letter-spacing: -0.045em; }
 }
-@media (max-width: 640px) { .hero-h1 { font-size: 26px; } }
+@media (max-width: 640px) { .hero-h1 { font-size: clamp(34px, 9vw, 46px); } }
+
+/* 首屏副标题跟着标题一起放大，否则 h1 一大就显得"头重脚轻"。
+   .hero-fact 是那句定义性的长描述（也是 p），单独排除掉。 */
+.hero p:not(.hero-fact) {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.6; color: var(--t3);
+}
+.hero-fact { font-size: clamp(13.5px, 1.1vw, 15.5px); }
 
 /* ══════════════════════════════════════════════════════════════════════════
    功能卡（#features）
@@ -216,11 +239,15 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* 半宽对里的第二张轻微下移，做出错落感 */
 .feat-item--offset { margin-top: 44px; }
 
+/* ★ 卡片标题放大：原来 19px。radialz 的 step-card h3 是 clamp(32px,3.4vw,46px)。 */
 .feat-item figcaption h4 {
-  font-size: 19px; font-weight: 700; color: var(--brand); margin-bottom: 8px;
+  font-size: clamp(23px, 2.5vw, 34px);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
+  color: var(--brand); margin-bottom: 10px;
 }
 .feat-item figcaption p {
-  font-size: 14.5px; color: var(--t4); line-height: 1.75; margin: 0;
+  font-size: clamp(14.5px, 1.15vw, 16.5px);
+  color: var(--t4); line-height: 1.7; margin: 0;
   max-width: 760px;        /* 全宽时别把文字拉成一条长线，影响阅读 */
 }
 
