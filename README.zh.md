@@ -2,7 +2,11 @@
 
 **SculptBox 是一款面向 macOS 与 Windows 的 ZBrush 笔刷管理工具，让 3D 艺术家无需打开 ZBrush 就能整理、搜索、打标签和预览自己的笔刷库（.ZBP / .ZBR / .MNU）。**
 
+**雕刻模式（Sculpt Mode）** — 一个挂在 ZBrush *旁边* 的紧凑悬浮窗，浏览、搜索、发送笔刷全程不遮挡视口。
+
 **3D 资产管理工具 — 让笔刷库随取随用。**
+
+免费 · 4 种语言（中文 / English / 日本語 / 한국어）· macOS 现已可用，Windows 开发中
 
 ---
 
@@ -14,8 +18,10 @@
 
 | 版本 | 下载 | 说明 |
 |:----|:----|:------|
-| macOS V1.2 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 |
-| macOS V1.2 | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
+| macOS **V1.4** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 · 136 MB |
+| macOS **V1.4** | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
+
+> **完全免费，不用注册，没有试用期。** SculptBox 把你的笔刷目录视为只读 —— 从不移动、改名或修改 `.ZBP` 文件。唯一的网络访问是可选的更新检查，可以关闭。
 
 ---
 
@@ -36,18 +42,26 @@ sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app
 1. 下载 DMG，拖入 Applications
 2. 如果报错，执行上面的命令
 3. 启动 SculptBox
-4. Settings → Plugin Status → Install 一键部署桥接
+4. Settings → Plugin Status → Install 一键安装 **Sculpt Bridge**
 5. 重启 ZBrush
 
 ---
 
 ## ✨ 功能介绍
 
+### 雕刻模式 —— 一个不挡路的窗口
+
+<img src="promo/assets/screenshot_floatmini.png" width="800" alt="Sculpt Mode 悬浮窗与 ZBrush 并排"/>
+
+一个挂在 ZBrush **旁边**（而不是盖在上面）的紧凑悬浮窗。三档高度、拖拽调宽、位置记忆 —— 雕刻过程中视口永远不会被挡住。
+
+<img src="promo/assets/screenshot_mini_l3.png" width="170" alt="三行布局"/> <img src="promo/assets/screenshot_adjust_sizechange.png" width="240" alt="拖拽调宽"/>
+
 ### 笔刷管理
 
 <img src="promo/assets/screenshot_main.png" width="700" alt="主界面"/>
 
-SculptBox 自动索引你的全部笔刷目录。几千个笔刷，几秒加载完成。
+SculptBox 自动索引你的全部笔刷目录 —— 笔刷、Alpha、材质、贴图各归各类。几千个笔刷，几秒加载完成。
 
 - **搜索** — 输入关键词，实时过滤
 
@@ -71,7 +85,7 @@ SculptBox 自动索引你的全部笔刷目录。几千个笔刷，几秒加载�
 
 <img src="promo/assets/screenshot_send.png" width="400" alt="发送到 ZBrush"/>
 
-任意笔刷上右键 → Send to ZBrush，通过 IPC 桥接实时加载。不用再在 ZBrush 里翻文件夹了。
+任意笔刷上右键 → Send to ZBrush，通过 **Sculpt Bridge** 实时加载。不用再在 ZBrush 里翻文件夹了。
 
 ### 批量操作
 
@@ -88,11 +102,10 @@ SculptBox 自动索引你的全部笔刷目录。几千个笔刷，几秒加载�
 ### 桥接状态一键查看
 
 <img src="promo/assets/screenshot_plugin_status.png" width="600" alt="桥接状态"/>
-
 Settings → Plugin Status 一目了然：
 - ZBrush 是否安装
-- 桥接脚本是否部署
-- IPC 目录是否就绪
+- **Sculpt Bridge** 是否部署
+- 是否就绪可发送
 - LaunchAgent 状态
 
 点击 **Install**，1 分钟完成部署，不需要终端。
@@ -128,7 +141,7 @@ Settings → Plugin Status 一目了然：
 
 1. 按住 Shift/Cmd 多选笔刷
 2. 右键 → Send to ZBrush
-3. SculptBox 通过 IPC 桥接逐个发送
+3. SculptBox 通过 **Sculpt Bridge** 逐个发送
 
 ### 管理标签
 

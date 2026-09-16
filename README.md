@@ -2,7 +2,11 @@
 
 **SculptBox is a ZBrush brush manager for macOS and Windows that lets 3D artists organize, search, tag and preview their ZBrush brush library (.ZBP / .ZBR / .MNU) outside of ZBrush — no need to launch ZBrush just to browse.**
 
+**Sculpt Mode** — a compact floating window that sits *beside* ZBrush, so you can browse, search and send brushes without covering your viewport.
+
 **3D Asset Management Tool — Your brush library, at your fingertips.**
+
+Free · 4 languages (English / 中文 / 日本語 / 한국어) · macOS now, Windows in progress
 
 ---
 
@@ -14,8 +18,10 @@ English · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](RE
 
 | Version | Download | Notes |
 |:--------|:---------|:------|
-| macOS V1.2 | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download |
-| macOS V1.2 | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
+| macOS **V1.4** | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download · 136 MB |
+| macOS **V1.4** | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
+
+> **Free, no account, no trial limit.** SculptBox treats your brush folders as read-only — your `.ZBP` files are never moved, renamed or edited. The only network access is an optional update check, which you can turn off.
 
 ---
 
@@ -38,18 +44,26 @@ Or go to **System Settings → Privacy & Security**, click **Open Anyway**.
 1. Download the DMG, drag SculptBox into Applications
 2. If blocked, run the command above
 3. Launch SculptBox
-4. Go to **Settings → Plugin Status → Install** to deploy the ZBrush bridge
+4. Go to **Settings → Plugin Status → Install** to set up **Sculpt Bridge**
 5. Restart ZBrush
 
 ---
 
 ## Features
 
+### Sculpt Mode — the window that stays out of the way
+
+<img src="promo/assets/screenshot_floatmini.png" width="800" alt="Sculpt Mode floating window beside ZBrush"/>
+
+A compact floating window that sits **beside** ZBrush instead of on top of it. Three heights, drag to resize, and it remembers where you put it — so your viewport never gets covered mid-sculpt.
+
+<img src="promo/assets/screenshot_mini_l3.png" width="170" alt="Three-row layout"/> <img src="promo/assets/screenshot_adjust_sizechange.png" width="240" alt="Drag to resize"/>
+
 ### Brush Management
 
 <img src="promo/assets/screenshot_main.png" width="700" alt="Main window"/>
 
-SculptBox indexes your entire brush library. Thousands of brushes, loaded in seconds.
+SculptBox indexes your entire brush library — brushes, alphas, materials and textures, each in its own category. Thousands of brushes, loaded in seconds.
 
 - **Search** — Type any keyword, results appear instantly
 
@@ -73,7 +87,7 @@ Every brush shows its real thumbnail — no more guessing from file names. Nativ
 
 <img src="promo/assets/screenshot_send.png" width="400" alt="Send to ZBrush"/>
 
-Right-click any brush → **Send to ZBrush**. The brush loads instantly via IPC bridge. No more manual file browsing in ZBrush.
+Right-click any brush → **Send to ZBrush**. The brush loads instantly via **Sculpt Bridge**. No more manual file browsing in ZBrush.
 
 ### Batch Operations
 
@@ -93,11 +107,11 @@ Select multiple brushes → batch send to ZBrush, batch export thumbnails, batch
 
 Settings → Plugin Status shows you everything:
 - ZBrush installation status
-- Bridge script deployment
-- IPC directory readiness
+- **Sculpt Bridge** deployment
+- Ready-to-send status
 - LaunchAgent status
 
-Click **Install** to deploy the bridge in under a minute. No terminal, no config files.
+Click **Install** to set up Sculpt Bridge in under a minute. No terminal, no config files.
 
 ### Settings & About
 
@@ -130,7 +144,7 @@ Type in the search bar at the top. Results filter in real-time. Use tags on the 
 
 1. Select multiple brushes (hold Shift/Cmd)
 2. Right-click → **Send to ZBrush**
-3. SculptBox sends them one by one via IPC bridge
+3. SculptBox sends them one by one via **Sculpt Bridge**
 
 ### Managing Tags
 

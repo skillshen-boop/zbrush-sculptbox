@@ -14,8 +14,10 @@
 
 | バージョン | ダウンロード | 備考 |
 |:----------|:------------|:-----|
-| macOS V1.2 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | ZBrush 2026+ |
-| macOS V1.2 | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | コード: `tayr` |
+| macOS **V1.4** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 136 MB · ZBrush 2026+ |
+| macOS **V1.4** | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | コード: `tayr` |
+
+> **無料・アカウント不要・体験版の期限なし。** ブラシフォルダは読み取り専用として扱われ、`.ZBP` ファイルが移動・改名・編集されることはありません。
 
 ---
 
@@ -36,19 +38,31 @@ sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app
 1. DMG をダウンロード、Applications にドラッグ
 2. ブロックされたら上記のコマンドを実行
 3. SculptBox を起動
-4. Settings → Install でブリッジをデプロイ
+4. Settings → Install で **Sculpt Bridge** をインストール
 5. ZBrush を再起動
 
 ---
 
 ## ✨ 機能
 
-- **ブラシ管理** — 検索、タグ、お気に入り、分類
-- **サムネイルプレビュー** — ネイティブ ZBP 解析
-- **Send to ZBrush** — 右クリックで送信
-- **バッチ操作** — 一括送信、一括エクスポート
+### 彫刻モード — 邪魔をしないウィンドウ
+
+<img src="promo/assets/screenshot_floatmini.png" width="760" alt="ZBrush の隣に開いた SculptBox 彫刻モード"/>
+
+ZBrush の**隣**に置けるコンパクトなフローティングウィンドウ。3 段階の高さ、ドラッグで幅変更、位置も記憶します。
+
+<img src="promo/assets/screenshot_mini_l3.png" width="160" alt="3 行レイアウト"/> <img src="promo/assets/screenshot_adjust_sizechange.png" width="230" alt="ドラッグで幅変更"/>
+
+### ブラシ管理
+
+<img src="promo/assets/screenshot_main.png" width="700" alt="メインウィンドウ"/>
+
+- **ブラシ管理** — 検索、タグ、お気に入り、分類（ブラシ・アルファ・マテリアル・テクスチャ）
+- **サムネイルプレビュー** — ネイティブ .ZBP 解析、S/M/L の 3 サイズ
+- **Send to ZBrush** — 右クリックで送信（Sculpt Bridge 経由）
+- **バッチ操作** — 一括送信、一括エクスポート、一括タグ付け
 - **4 言語** — English · 中文 · 日本語 · 한국어
-- **ワンクリックデプロイ** — 1 分で完了
+- **ワンクリックインストール** — 1 分で完了
 
 ---
 

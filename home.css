@@ -148,6 +148,23 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .band h3 { font-size: 22px; }
 }
 
+/* ── 首屏 h1 ──────────────────────────────────────────────────────────────
+   ★ 首页此前用 <h2> 当主标题，全页没有 h1 —— 这是最基础的 SEO 失分项。
+     这里把 site.css 里 .hero h2 的样式原样复刻给 h1（不改 site.css，
+     它被 24 个页面共用）。 */
+.hero-h1 {
+  font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 12px;
+  /* 入场：标题轻微上浮 + 字距收拢，做出"落定"的高级感 */
+  animation: hero-in .9s cubic-bezier(.2, .7, .3, 1) both;
+}
+.hero-h1 { text-align: center; }
+.hero-h1 span, .hero-h1 .z { color: var(--brand); }
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); letter-spacing: .04em; }
+  to   { opacity: 1; transform: none; letter-spacing: normal; }
+}
+@media (max-width: 640px) { .hero-h1 { font-size: 26px; } }
+
 /* ══════════════════════════════════════════════════════════════════════════
    功能卡（#features）
    ★ 文字在上、图片在下 —— 不再是 site.css 那种左右分栏。图片尽量放大，
@@ -175,8 +192,70 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 .feat-item img {
   width: 100%; height: auto; display: block;
+}
+
+/* ── 切图的"相框" ─────────────────────────────────────────────────────────
+   hover 时图片在框内轻微放大（scale 被 overflow 裁住），边框与辉光渐亮。
+   这是整页最能出"质感"的一处：动得少、但顺滑。 */
+.feat-item .shot {
+  display: block; overflow: hidden;
   border-radius: var(--r-s); border: 1px solid var(--line);
   background: var(--surface-2);
+  transition: border-color .5s ease, box-shadow .6s ease;
+}
+.feat-item .shot img {
+  transition: transform .8s cubic-bezier(.2, .7, .3, 1);
+  will-change: transform;
+}
+.feat-item:hover .shot {
+  border-color: rgba(255, 123, 0, .5);
+  box-shadow: 0 28px 60px -34px rgba(0, 0, 0, .95),
+              0 0 0 1px rgba(255, 123, 0, .22),
+              0 0 80px -28px rgba(255, 123, 0, .5);
+}
+.feat-item:hover .shot img { transform: scale(1.035); }
+.feat-item figcaption h4 { transition: color .3s ease; }
+.feat-item:hover figcaption h4 { color: var(--brand-hi); }
+/* 触屏没有 hover，用 :active 给一点同样的反馈 */
+@media (hover: none) {
+  .feat-item:active .shot img { transform: scale(1.02); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   区块标题下的细线 —— 进入视口时从左展开
+   ★ 用 transition 而不是 animation，这样能直接挂在已有的 .reveal.in 上，
+     不需要再写一套 IntersectionObserver 逻辑。
+   ══════════════════════════════════════════════════════════════════════════ */
+h3.reveal::after {
+  content: ""; display: block; width: 56px; height: 2px; margin-top: 16px;
+  background: linear-gradient(90deg, var(--brand), rgba(255, 123, 0, 0));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .9s cubic-bezier(.2, .7, .3, 1) .12s;
+}
+html.js h3.reveal.in::after { transform: scaleX(1); }
+html:not(.js) h3.reveal::after { transform: scaleX(1); }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   首屏的呼吸光 —— 极慢、极淡，只是让静止画面"活着"
+   ══════════════════════════════════════════════════════════════════════════ */
+.hero { position: relative; }
+.hero::before {
+  content: ""; position: absolute; inset: -80px 0 auto 0; height: 460px;
+  background: radial-gradient(52% 60% at 50% 0,
+              rgba(255, 123, 0, .10), transparent 72%);
+  pointer-events: none; z-index: -1;
+  animation: hero-breathe 9s ease-in-out infinite alternate;
+}
+@keyframes hero-breathe {
+  from { opacity: .55; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feat-item .shot, .feat-item .shot img { transition: none; }
+  .feat-item:hover .shot img { transform: none; }
+  h3.reveal::after { transition: none; transform: scaleX(1); }
+  .hero::before { animation: none; }
 }
 
 @media (max-width: 760px) {

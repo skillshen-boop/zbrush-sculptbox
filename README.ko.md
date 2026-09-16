@@ -14,8 +14,10 @@
 
 | 버전 | 다운로드 | 비고 |
 |:----|:--------|:-----|
-| macOS V1.2 | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | ZBrush 2026+ |
-| macOS V1.2 | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 코드: `tayr` |
+| macOS **V1.4** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 136 MB · ZBrush 2026+ |
+| macOS **V1.4** | [☁️ Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 코드: `tayr` |
+
+> **무료 · 계정 불필요 · 체험판 기한 없음.** 브러시 폴더는 읽기 전용으로 취급되며 `.ZBP` 파일이 이동·이름 변경·편집되지 않습니다.
 
 ---
 
@@ -36,19 +38,31 @@ sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app
 1. DMG 다운로드 후 Applications에 드래그
 2. 차단되면 위 명령어 실행
 3. SculptBox 실행
-4. Settings → Install로 브릿지 배포
+4. Settings → Install로 **Sculpt Bridge** 설치
 5. ZBrush 재시작
 
 ---
 
 ## ✨ 기능
 
-- **브러시 관리** — 검색, 태그, 즐겨찾기, 분류
-- **썸네일 미리보기** — 네이티브 ZBP 파싱
-- **Send to ZBrush** — 우클릭으로 전송
-- **배치 작업** — 일괄 전송, 일괄 내보내기
+### 조각 모드 — 길을 막지 않는 창
+
+<img src="promo/assets/screenshot_floatmini.png" width="760" alt="ZBrush 옆에 열린 SculptBox 조각 모드"/>
+
+ZBrush **옆**에 띄우는 컴팩트한 플로팅 창. 3단계 높이, 드래그로 너비 조절, 위치까지 기억합니다.
+
+<img src="promo/assets/screenshot_mini_l3.png" width="160" alt="3줄 레이아웃"/> <img src="promo/assets/screenshot_adjust_sizechange.png" width="230" alt="드래그로 너비 조절"/>
+
+### 브러시 관리
+
+<img src="promo/assets/screenshot_main.png" width="700" alt="메인 창"/>
+
+- **브러시 관리** — 검색, 태그, 즐겨찾기, 분류 (브러시·알파·매트리얼·텍스처)
+- **썸네일 미리보기** — 네이티브 .ZBP 파싱, S/M/L 3단계
+- **Send to ZBrush** — 우클릭으로 전송 (Sculpt Bridge 경유)
+- **배치 작업** — 일괄 전송, 일괄 내보내기, 일괄 태그
 - **4개 언어** — English · 中文 · 日本語 · 한국어
-- **원클릭 배포** — 1분 안에 설치 완료
+- **원클릭 설치** — 1분 안에 완료
 
 ---
 
