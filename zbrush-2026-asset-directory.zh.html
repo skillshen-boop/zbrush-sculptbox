@@ -43,7 +43,7 @@
           "name": "ZBrush 2026.1 的笔刷存在哪里？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "存在每个用户自己的资产目录里：macOS 是 /Users/[你]/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets，Windows 是 C:\\Users\\[你]\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets。"
+            "text": "在每个用户自己的资产目录里 —— macOS …/Library/Application Support/Maxon/ZBrush_[HashValue]/ZStartUp/BrushPresets，Windows …\\AppData\\Roaming\\Maxon\\ZBrush_[HashValue]\\ZStartUp\\BrushPresets。"
           }
         },
         {
@@ -59,7 +59,7 @@
           "name": "升级后旧笔刷会自动加载吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "只有当它们在新的用户目录 ZStartUp 下才会。还留在旧安装目录或公共目录里的笔刷不会出现。"
+            "text": "只有当它们在新的用户目录 ZStartUp 下才会。还留在旧安装目录或公共目录里的不会出现。"
           }
         },
         {
@@ -67,7 +67,7 @@
           "name": "没装 ZBrush 能用 SculptBox 吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以。缩略图是从 .ZBP 文件原生解析的，浏览笔刷库不需要 ZBrush 运行、也不需要安装。"
+            "text": "可以 —— 缩略图是从 .ZBP 文件原生解析的，浏览笔刷库不需要 ZBrush 运行，甚至不需要安装。"
           }
         }
       ]
@@ -98,7 +98,6 @@
 </div></section>
 
 <section class="prose"><div class="container">
-
 <div class="callout"><p><strong>SculptBox 是一款面向 macOS 与 Windows 的 ZBrush 笔刷管理工具，它索引的是你磁盘上笔刷「本来就在的地方」</strong> —— 所以就算 ZBrush 再改一次目录结构，你的笔刷依然找得到。</p></div>
 
 <h2>2026.1 到底改了什么</h2>
@@ -150,7 +149,6 @@
 <div class="faq-item"><h3>还能把笔刷放在 ZBrush 安装目录里吗？</h3><p>不能。从 2026.1 起 ZBrush 不再往应用根目录写文件，旧的公共 <code>ZBrushData(版本)</code> 目录也不再创建。</p></div>
 <div class="faq-item"><h3>升级后旧笔刷会自动加载吗？</h3><p>只有当它们在新的用户目录 <code>ZStartUp</code> 下才会。还留在旧安装目录或公共目录里的不会出现。</p></div>
 <div class="faq-item"><h3>没装 ZBrush 能用 SculptBox 吗？</h3><p>可以 —— 缩略图是从 <code>.ZBP</code> 文件原生解析的，浏览笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
-
 </div></section>
 
 <footer><div class="container">
