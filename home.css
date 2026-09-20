@@ -680,17 +680,19 @@ html:not(.js) .reveal .pain-card { opacity: 1; transform: none; }
   .pain-track { grid-auto-columns: minmax(240px, 78%); }
 }
 
-/* 转折句的绿色矢量对钩 —— 一条痛点一个勾，逐个描边画出来。
-   --d 是勾的序号（_home.py 写死），错峰 110ms，整体约 1.5s 画满。 */
-.pivot .ticks { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
-.pivot .tick { width: 22px; height: 22px; overflow: visible; }
+/* 转折句的绿色矢量对钩 —— 排在文字**前面**，跟着标题字号缩放（所以写在 .b 里面）。
+   9 个勾**逐个**画：一格 .38s > 画线 .34s，前一个收笔下一个才起笔，
+   顺序放完 = 9 个痛点全被划掉。--d 是勾的序号（_home.py 写死）。 */
+.pivot .ticks { display: inline-flex; gap: .16em;
+                vertical-align: -.02em; margin-right: .34em; }
+.pivot .tick { width: .78em; height: .78em; overflow: visible; }
 .pivot .tick path { fill: none; stroke: #22C55E; stroke-width: 3;
                     stroke-linecap: round; stroke-linejoin: round;
                     stroke-dasharray: 34; stroke-dashoffset: 34; }
 html:not(.js) .pivot .tick path { stroke-dashoffset: 0; }
 html.js .pivot.in .tick path {
-  animation: tickDraw .55s ease forwards;
-  animation-delay: calc(.15s + var(--d, 0) * .11s); }
+  animation: tickDraw .34s ease forwards;
+  animation-delay: calc(.45s + var(--d, 0) * .38s); }
 @keyframes tickDraw { to { stroke-dashoffset: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
