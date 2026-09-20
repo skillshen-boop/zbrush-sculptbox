@@ -633,19 +633,23 @@ html:not(.js) .reveal .k, html:not(.js) .reveal .b { opacity: 1; transform: none
    焦虑区卡片轨道（2026-09-20）
    —— 横排卡片，一次看 3~4 张，其余横向滚动；入场左右飞入。
    ══════════════════════════════════════════════════════════════════════════ */
+/* ★ 这里**没有** scroll-snap，是刻意的（2026-09-20）：
+   轨道现在会自动巡航（home.js），而 snap 吸附会在每一帧程序化设置
+   scrollLeft 之后把位置拽回吸附点 —— 表现是整条轨道一抖一抖。
+   自动巡航和 snap 二选一，选了前者。 */
 .pain-track {
   display: grid; grid-auto-flow: column;
   grid-auto-columns: minmax(260px, 31%);
   gap: 16px; margin-top: 26px; padding: 4px 2px 14px;
   overflow-x: auto; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
+  scroll-behavior: auto;              /* 防任何 smooth 设定，程序化滚动必须立刻生效 */
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 .pain-track::-webkit-scrollbar { height: 6px; }
 .pain-track::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
 
 .pain-card {
-  scroll-snap-align: start;
   display: flex; flex-direction: column; gap: 10px;
   padding: 20px 18px; border-radius: 12px;
   background: linear-gradient(180deg, #161616, #121212);
@@ -666,18 +670,27 @@ html.js .reveal:not(.in) .pain-card:nth-child(odd)  { transform: translateX(-46p
 html.js .reveal:not(.in) .pain-card:nth-child(even) { transform: translateX(46px); }
 html:not(.js) .reveal .pain-card { opacity: 1; transform: none; }
 
+/* 数字条（222 / 0 / ~50ms / 1）—— 全页最狠的一组对照，
+   字号必须压过正文。site.css 里的 26px 是全站默认值，这里只在首页放大。 */
+.stats .stat { padding: 22px 12px; }
+.stats .stat b { font-size: clamp(36px, 4.8vw, 56px); letter-spacing: -.02em; }
+.stats .stat span { margin-top: 10px; font-size: clamp(13px, 1.15vw, 15.5px); }
+
 @media (max-width: 860px) {
   .pain-track { grid-auto-columns: minmax(240px, 78%); }
 }
 
-/* 转折句的绿色矢量对钩 —— 描边动画 */
-.pivot .tick { width: 1.05em; height: 1.05em; vertical-align: -.12em;
-               margin-right: .3em; overflow: visible; }
+/* 转折句的绿色矢量对钩 —— 一条痛点一个勾，逐个描边画出来。
+   --d 是勾的序号（_home.py 写死），错峰 110ms，整体约 1.5s 画满。 */
+.pivot .ticks { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+.pivot .tick { width: 22px; height: 22px; overflow: visible; }
 .pivot .tick path { fill: none; stroke: #22C55E; stroke-width: 3;
                     stroke-linecap: round; stroke-linejoin: round;
                     stroke-dasharray: 34; stroke-dashoffset: 34; }
 html:not(.js) .pivot .tick path { stroke-dashoffset: 0; }
-html.js .pivot.in .tick path { animation: tickDraw .55s ease .3s forwards; }
+html.js .pivot.in .tick path {
+  animation: tickDraw .55s ease forwards;
+  animation-delay: calc(.15s + var(--d, 0) * .11s); }
 @keyframes tickDraw { to { stroke-dashoffset: 0; } }
 
 @media (prefers-reduced-motion: reduce) {

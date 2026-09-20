@@ -41,6 +41,104 @@
     if (ioRun) { ioRun.observe(el); } else { el.classList.add('running'); }
   });
 
+  /* ── 焦虑区卡片轨道：自动巡航 + 悬浮暂停 + 甩动 ─────────────────────
+     要的是「自己左右动、鼠标浮上去停、往左甩它飞过去、往右甩也飞过去」。
+
+     做法**不是** transform 跑马灯 —— 那样甩不动。这里保留原生横向滚动：
+     轮盘 / 触控板的惯性甩动、双指横扫全是浏览器原生的，我们只负责在没人
+     碰的时候往前慢慢推。
+
+     无缝循环：把卡片在 JS 里复制一份（无 JS 时 DOM 一个字节都不变），
+     内容于是有了周期 P。滚到右端减去 P、往回甩到左端之前加上 P —— 相隔 P
+     的画面逐像素相同，所以这一步看不见接缝。
+
+     ★ home.css 里必须**没有** scroll-snap：mandatory 吸附会在每帧程序化
+       写 scrollLeft 之后把位置拽回吸附点，轨道会一抖一抖。
+     ★ 手在轨道上（鼠标）→ 停；移开或甩完闲置 1.6s → 自己接着走。
+     ★ 观感定了但不该空转：轨道不在视口里、标签页在后台、系统开了
+       「减弱动态效果」，都不跑。 */
+  var track = document.querySelector('.pain-track');
+  var reduceMotion = window.matchMedia &&
+                     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (track && !reduceMotion) {
+    var count = track.children.length;         // 复制前 = 真实卡片数
+    var head = track.children[0];
+    for (var c = 0; c < count; c++) {
+      var dup = track.children[c].cloneNode(true);
+      dup.setAttribute('aria-hidden', 'true');  // 复本不进无障碍树、不进 SEO
+      dup.style.setProperty('--i', '0');        // 复本不参与入场错峰
+      track.appendChild(dup);
+    }
+    var mirror = track.children[count];
+    var SPEED = 34;                            // px / 秒
+    var IDLE = 1600;                           // 甩完多久自己接着走
+    var P = 0, maxScroll = 0, acc = 0, last = 0, raf = 0;
+    var started = false, visible = false, hovering = false, idleUntil = 0;
+
+    /* 把 acc 收回安全区。相隔 P 画面相同，所以这是**看不见的**跳位，
+       代价是永远撞不到两端的钳制、也就永远不会卡住。 */
+    var normalize = function () {
+      if (P <= 0) { return; }
+      if (acc >= maxScroll) { acc -= P; }
+      else if (acc <= P * 0.5) { acc += P; }
+    };
+
+    var measure = function () {
+      /* 周期必须**量**出来，不能拿 scrollWidth / 2：栅格 gap 有 17 段，
+         除以二会差半个 gap，每循环一次就跳 8px，肉眼能看见。 */
+      P = mirror.getBoundingClientRect().left - head.getBoundingClientRect().left;
+      maxScroll = track.scrollWidth - track.clientWidth;
+      if (maxScroll < P) {                     // 两组都装得下 = 没得循环，别硬跑
+        P = 0; track.scrollLeft = 0; started = false; return;
+      }
+      acc = started ? track.scrollLeft : P;    // 起手停在第二组：画面不变，左右都有余量
+      started = true;
+      normalize();
+      track.scrollLeft = acc;
+    };
+
+    var step = function (t) {
+      raf = requestAnimationFrame(step);
+      var dt = last ? Math.min(t - last, 64) : 0;   // 切回标签页时别一步跳出去
+      last = t;
+      if (!P || !visible || hovering || t < idleUntil) {
+        if (P) { acc = track.scrollLeft; }
+        return;
+      }
+      acc += SPEED * dt / 1000;
+      normalize();
+      track.scrollLeft = acc;
+    };
+
+    var poke = function () { idleUntil = performance.now() + IDLE; last = 0; };
+
+    track.addEventListener('wheel', poke, { passive: true });
+    track.addEventListener('touchstart', poke, { passive: true });
+    track.addEventListener('touchmove', poke, { passive: true });
+    track.addEventListener('pointerdown', poke, { passive: true });
+    track.addEventListener('pointerenter', function (e) {
+      if (e.pointerType === 'mouse') { hovering = true; }
+    });
+    track.addEventListener('pointerleave', function (e) {
+      if (e.pointerType === 'mouse') { hovering = false; poke(); }
+    });
+    window.addEventListener('resize', measure, { passive: true });
+
+    if (hasIO) {
+      new IntersectionObserver(function (es) {
+        visible = es[0].isIntersecting;
+        if (visible) { acc = track.scrollLeft; last = 0; }
+      }, { threshold: 0.05 }).observe(track);
+    } else {
+      visible = true;
+    }
+
+    measure();
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measure); }
+    window.addEventListener('load', measure);
+    raf = requestAnimationFrame(step);
+  }
+
   /* ── Features 前 4 张：滚动时叠成"牌堆" ─────────────────────────────
      机制借自 radialz 的 STEP 卡片：卡片在 CSS 里是 position: sticky +
      递减的 top，这里负责给"正被下一张盖住的那张"做纵深 ——
