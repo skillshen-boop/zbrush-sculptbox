@@ -594,3 +594,94 @@ html.js .pipe-node--zb .ok { animation: ok-in 7s ease infinite; }
 @media (max-width: 640px) {
   .pipe { padding: 20px 16px; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   焦虑区：大字 + 小字双层标题（2026-09-20）
+   小字（.k）先淡入，大字（.b）稍后跟上 —— 用 --cd 做错峰。
+   ★ 默认可见，只有 html.js 时才开始隐藏（与全站 .reveal 的约定一致）。
+   ══════════════════════════════════════════════════════════════════════════ */
+.pain-h, .pivot { display: flex; flex-direction: column; }
+.pain-h .k, .pain-h .b, .pivot .b, .pivot .k {
+  display: block;
+  transition: opacity .5s ease, transform .6s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--cd, 0) * 90ms);
+}
+html.js .reveal:not(.in) .k, html.js .reveal:not(.in) .b {
+  opacity: 0; transform: translateY(16px);
+}
+html:not(.js) .reveal .k, html:not(.js) .reveal .b { opacity: 1; transform: none; }
+
+.pain-h .k { font: 600 12.5px/1 var(--mono); letter-spacing: .16em;
+             text-transform: uppercase; color: var(--brand);
+             margin-bottom: 12px; --cd: 0; }
+.pain-h .b { font-size: clamp(27px, 3.6vw, 46px); font-weight: 800;
+             line-height: 1.08; letter-spacing: -.03em; color: var(--t1);
+             --cd: 1; }
+
+.pivot { margin: 34px 0 14px; }
+.pivot .b { font-size: clamp(23px, 3vw, 36px); font-weight: 800;
+            line-height: 1.12; letter-spacing: -.025em; color: var(--brand);
+            --cd: 0; }
+.pivot .k { margin-top: 10px; font-size: clamp(13px, 1.1vw, 15px);
+            color: var(--t4); --cd: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pain-h .k, .pain-h .b, .pivot .b, .pivot .k { transition: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   焦虑区卡片轨道（2026-09-20）
+   —— 横排卡片，一次看 3~4 张，其余横向滚动；入场左右飞入。
+   ══════════════════════════════════════════════════════════════════════════ */
+.pain-track {
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 31%);
+  gap: 16px; margin-top: 26px; padding: 4px 2px 14px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.pain-track::-webkit-scrollbar { height: 6px; }
+.pain-track::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+
+.pain-card {
+  scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 20px 18px; border-radius: 12px;
+  background: linear-gradient(180deg, #161616, #121212);
+  border: 1px solid #242424; border-left: 3px solid #7a3300;
+  transition: transform .5s cubic-bezier(.2, .7, .3, 1),
+              opacity .5s ease, border-color .25s ease;
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.pain-card:hover { border-color: #3a3a3a; border-left-color: var(--brand); }
+.pain-card .pn { font: 700 12px/1 var(--mono); letter-spacing: .1em;
+                 color: var(--brand); opacity: .8; }
+.pain-card .pt { font-size: clamp(15px, 1.35vw, 18px); font-weight: 600;
+                 line-height: 1.5; color: var(--t2); }
+
+/* 入场：奇数从左飞，偶数从右飞 */
+html.js .reveal:not(.in) .pain-card { opacity: 0; }
+html.js .reveal:not(.in) .pain-card:nth-child(odd)  { transform: translateX(-46px); }
+html.js .reveal:not(.in) .pain-card:nth-child(even) { transform: translateX(46px); }
+html:not(.js) .reveal .pain-card { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .pain-track { grid-auto-columns: minmax(240px, 78%); }
+}
+
+/* 转折句的绿色矢量对钩 —— 描边动画 */
+.pivot .tick { width: 1.05em; height: 1.05em; vertical-align: -.12em;
+               margin-right: .3em; overflow: visible; }
+.pivot .tick path { fill: none; stroke: #22C55E; stroke-width: 3;
+                    stroke-linecap: round; stroke-linejoin: round;
+                    stroke-dasharray: 34; stroke-dashoffset: 34; }
+html:not(.js) .pivot .tick path { stroke-dashoffset: 0; }
+html.js .pivot.in .tick path { animation: tickDraw .55s ease .3s forwards; }
+@keyframes tickDraw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pain-card { transition: none; }
+  html.js .reveal:not(.in) .pain-card { opacity: 1; transform: none; }
+  html.js .pivot.in .tick path { animation: none; stroke-dashoffset: 0; }
+}

@@ -127,3 +127,14 @@ table.tbl tr:hover td { background: #151515; }
 table.tbl.cmp { margin-top: 6px; }
 table.tbl.cmp td:first-child { color: #777; width: 42%; }
 table.tbl.cmp td:last-child { color: #c8c8c8; }
+
+/* 数字条（焦虑区底部）—— 产品事实，不是宣传语 */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr);
+         gap: 12px; margin: 26px 0 0; }
+.stats .stat { text-align: center; padding: 16px 10px;
+               background: #141414; border: 1px solid #222; border-radius: 10px; }
+.stats .stat b { display: block; font-size: 26px; color: #FF7B00;
+                 font-family: Menlo, monospace; line-height: 1.2; }
+.stats .stat span { display: block; margin-top: 6px; font-size: 12.5px;
+                    color: #888; line-height: 1.5; }
+@media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
