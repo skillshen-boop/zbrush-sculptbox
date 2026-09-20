@@ -637,17 +637,21 @@ html:not(.js) .reveal .k, html:not(.js) .reveal .b { opacity: 1; transform: none
    轨道现在会自动巡航（home.js），而 snap 吸附会在每一帧程序化设置
    scrollLeft 之后把位置拽回吸附点 —— 表现是整条轨道一抖一抖。
    自动巡航和 snap 二选一，选了前者。 */
+/* ★ 满屏：.pain-track 在 markup 里是 <section> 的**直接子元素**，不在 .wrap 里
+   —— 所以它打穿整页宽度，跟下面的评价墙一样。左右两端用 mask 渐隐。
+   ★ 滚动条藏掉：mask 会把两端的滚动条槽也渐隐，露出来就是断的；
+     而卡片本来就在自己巡航，滚动条不是唯一提示。 */
 .pain-track {
   display: grid; grid-auto-flow: column;
   grid-auto-columns: 300px;
-  gap: 16px; margin-top: 26px; padding: 4px 2px 14px;
+  gap: 16px; margin-top: 26px; padding: 4px 0 16px;
   overflow-x: auto; overscroll-behavior-x: contain;
   scroll-behavior: auto;              /* 防任何 smooth 设定，程序化滚动必须立刻生效 */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
-.pain-track::-webkit-scrollbar { height: 6px; }
-.pain-track::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+.pain-track::-webkit-scrollbar { display: none; }
 
 /* 固定 300×350 —— 等高等宽才排得齐，横向滚动时也不会一卡一卡地变高。
    文字占满剩下的空间（.pt 是 flex:1），所以字号放大也不会把卡片撑开。 */

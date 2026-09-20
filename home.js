@@ -48,9 +48,18 @@
      轮盘 / 触控板的惯性甩动、双指横扫全是浏览器原生的，我们只负责在没人
      碰的时候往前慢慢推。
 
-     无缝循环：把卡片在 JS 里复制一份（无 JS 时 DOM 一个字节都不变），
-     内容于是有了周期 P。滚到右端减去 P、往回甩到左端之前加上 P —— 相隔 P
-     的画面逐像素相同，所以这一步看不见接缝。
+     无缝循环：把卡片在 JS 里复制两份（无 JS 时 DOM 一个字节不变），
+     内容于是有了周期 P。相隔 P 的画面逐像素相同，所以整段平移 P 看不见接缝。
+
+     ★ 为什么复制**两份**（共三组）而不是一份：轨道现在是满屏宽
+       （.pain-track 不在 .wrap 里），视口越宽可滚动范围越短。
+       4K 屏下两份只剩不到一个周期，循环窗口就摆不下了。
+
+     ★ 循环窗口取**居中**的一段 [lo, lo+P)，而不是 [0, P)：
+       窗口居中 → 两端各留 (maxScroll-P)/2 的甩动余量，往回甩不会一头撞死。
+       若分成"快到左端就 +P、快到右端就 -P"两条规则，在窄余量下会互相
+       触发（+P 的结果落回 -P 的触发区），整条轨道每帧来回跳 —— 必须
+       让"平移后的落点"落在两个触发区之外，居中窗口天然满足。
 
      ★ home.css 里必须**没有** scroll-snap：mandatory 吸附会在每帧程序化
        写 scrollLeft 之后把位置拽回吸附点，轨道会一抖一抖。
@@ -63,35 +72,40 @@
   if (track && !reduceMotion) {
     var count = track.children.length;         // 复制前 = 真实卡片数
     var head = track.children[0];
-    for (var c = 0; c < count; c++) {
-      var dup = track.children[c].cloneNode(true);
-      dup.setAttribute('aria-hidden', 'true');  // 复本不进无障碍树、不进 SEO
-      dup.style.setProperty('--i', '0');        // 复本不参与入场错峰
-      track.appendChild(dup);
+    for (var rep = 0; rep < 2; rep++) {        // 共三组
+      for (var c = 0; c < count; c++) {
+        var dup = track.children[c].cloneNode(true);
+        dup.setAttribute('aria-hidden', 'true');  // 复本不进无障碍树、不进 SEO
+        dup.style.setProperty('--i', '0');        // 复本不参与入场错峰
+        track.appendChild(dup);
+      }
     }
     var mirror = track.children[count];
     var SPEED = 34;                            // px / 秒
     var IDLE = 1600;                           // 甩完多久自己接着走
-    var P = 0, maxScroll = 0, acc = 0, last = 0, raf = 0;
+    var P = 0, lo = 0, maxScroll = 0, acc = 0, last = 0, raf = 0;
     var started = false, visible = false, hovering = false, idleUntil = 0;
 
-    /* 把 acc 收回安全区。相隔 P 画面相同，所以这是**看不见的**跳位，
-       代价是永远撞不到两端的钳制、也就永远不会卡住。 */
     var normalize = function () {
       if (P <= 0) { return; }
-      if (acc >= maxScroll) { acc -= P; }
-      else if (acc <= P * 0.5) { acc += P; }
+      if (acc >= lo + P) { acc -= P; }
+      else if (acc < lo) { acc += P; }
     };
 
     var measure = function () {
-      /* 周期必须**量**出来，不能拿 scrollWidth / 2：栅格 gap 有 17 段，
-         除以二会差半个 gap，每循环一次就跳 8px，肉眼能看见。 */
-      P = mirror.getBoundingClientRect().left - head.getBoundingClientRect().left;
+      /* ★★ 周期必须用 offsetLeft 量，**不能用 getBoundingClientRect** ——
+         rect 会把入场动画的 transform 算进去：奇数卡 translateX(-46px)、
+         偶数卡 +46px，于是 P 被量成"真实周期 + 92px"（实测 2936 vs 2844）。
+         后果是每循环一圈跳 92px，肉眼可见。offsetLeft 是布局值，不受
+         transform 影响。
+         ★ 也**不能**拿 scrollWidth / 3：栅格 gap 有 26 段，除不尽。 */
+      P = mirror.offsetLeft - head.offsetLeft;
       maxScroll = track.scrollWidth - track.clientWidth;
-      if (maxScroll < P) {                     // 两组都装得下 = 没得循环，别硬跑
+      if (P <= 0 || maxScroll < P + 200) {     // 视口宽到摆不下一个循环窗口
         P = 0; track.scrollLeft = 0; started = false; return;
       }
-      acc = started ? track.scrollLeft : P;    // 起手停在第二组：画面不变，左右都有余量
+      lo = (maxScroll - P) / 2;                // 窗口居中，两端余量对等
+      acc = started ? track.scrollLeft : lo + P * 0.5;
       started = true;
       normalize();
       track.scrollLeft = acc;
