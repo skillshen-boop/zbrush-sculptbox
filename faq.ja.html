@@ -43,7 +43,7 @@
           "name": "SculptBox は無料ですか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "はい。macOS では無料でダウンロード・利用できます。Windows 版もまもなく公開予定です。"
+            "text": "はい。macOS / Windows どちらでも無料でダウンロード・利用できます。"
           }
         },
         {
@@ -52,6 +52,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "ライブラリの閲覧は ZBrush に依存しません。Send to ZBrush 機能は ZBrush 2026 以降が必要です（Sculpt Bridge が必要なため）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZBrush 2025 以前は対応していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "未対応です。それ以前は古い Python API を使用しており、検証していません — IPC チャンネルは動作する可能性がありますが、手動トリガーが必要です。"
           }
         },
         {
@@ -146,8 +154,9 @@
 
 <section class="prose"><div class="container">
 <h2></h2>
-<div class="faq-item"><h3>SculptBox は無料ですか？</h3><p>はい。macOS では無料でダウンロード・利用できます。<strong>Windows 版もまもなく公開予定です</strong>。</p></div>
+<div class="faq-item"><h3>SculptBox は無料ですか？</h3><p>はい。macOS / Windows どちらでも無料でダウンロード・利用できます。</p></div>
 <div class="faq-item"><h3>対応している ZBrush のバージョンは？</h3><p>ライブラリの閲覧は ZBrush に依存しません。<strong>Send to ZBrush</strong> 機能は ZBrush 2026 以降が必要です（Sculpt Bridge が必要なため）。</p></div>
+<div class="faq-item"><h3>ZBrush 2025 以前は対応していますか？</h3><p>未対応です。それ以前は古い Python API を使用しており、検証していません &mdash; IPC チャンネルは動作する可能性がありますが、手動トリガーが必要です。</p></div>
 <div class="faq-item"><h3>ZBrush がなくても使えますか？</h3><p>使えます。サムネイルは <code>.ZBP</code> から直接解析するため、閲覧・検索に ZBrush の起動もインストールも不要です。</p></div>
 <div class="faq-item"><h3>ZBrush のブラシはどこに保存されますか？</h3><p>ZBrush 2026.1 以降はユーザーごとのアセットフォルダです。正確なパスは<a href="zbrush-2026-asset-directory.ja.html">2026.1 アセットディレクトリ変更ガイド</a>をご覧ください。</p></div>
 <div class="faq-item"><h3>ブラシが重複して表示されます。</h3><p>V1.0 でスキャンフォルダの入れ子が原因だった不具合です（同じブラシが親フォルダと子フォルダの両方に出る）。V1.1 では入れ子パスを自動で除外し、ファイルパスで重複排除します。改善しない場合は設定から再スキャンしてください。</p></div>

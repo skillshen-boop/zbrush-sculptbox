@@ -6,7 +6,7 @@
 
 **3D 资产管理工具 — 让笔刷库随取随用。**
 
-免费 · 4 种语言（中文 / English / 日本語 / 한국어）· macOS 现已可用，Windows 开发中
+免费 · 4 种语言（中文 / English / 日本語 / 한국어）· macOS 与 Windows 均可
 
 ---
 
@@ -18,8 +18,9 @@
 
 | 版本 | 下载 | 说明 |
 |:----|:----|:------|
-| macOS **V1.4** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 · 136 MB |
-| macOS **V1.4** | [☁️ 百度网盘](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | 提取码: tayr |
+| macOS **V1.6** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 · 137 MB |
+| macOS **V1.6** | [☁️ 百度网盘](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | 提取码: 42by |
+| Windows **V1.6** | [☁️ 百度网盘](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | `.exe` 安装包 · 提取码: 42by |
 
 > **完全免费，不用注册，没有试用期。** SculptBox 把你的笔刷目录视为只读 —— 从不移动、改名或修改 `.ZBP` 文件。唯一的网络访问是可选的更新检查，可以关闭。
 

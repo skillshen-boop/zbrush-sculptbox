@@ -33,7 +33,7 @@
       "applicationCategory": "DesignApplication",
       "applicationSubCategory": "ZBrush brush manager and 3D asset management tool",
       "operatingSystem": "macOS, Windows",
-      "softwareVersion": "1.4.0",
+      "softwareVersion": "1.6.0",
       "softwareRequirements": "ZBrush 2026 or later",
       "description": "SculptBox 管理万级 ZBrush 笔刷，支持搜索、标签、缩略图预览、一键发送到 ZBrush。免费下载。",
       "url": "https://sculptbox.net/",
@@ -106,10 +106,10 @@
 <h1 class="hero-h1">让你的笔刷库<br><span>随取随用</span></h1>
 <p>管理万级笔刷，毫秒级搜索。<br>一键发送到 ZBrush &middot; 4 种语言 &middot; 免费</p>
 <a href="https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest" class="btn">GitHub 下载</a>
-<a href="https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr" class="btn btn-alt">百度网盘 (提取码: tayr)</a>
+<a href="https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by" class="btn btn-alt">百度网盘 (提取码: 42by)</a>
 <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8" class="btn btn-ghost">Watch Video</a>
 <p class="hero-fact">SculptBox 是一款面向 macOS 与 Windows 的 ZBrush 笔刷管理工具，让 3D 艺术家无需打开 ZBrush 即可整理、搜索、打标签和预览自己的笔刷库。</p>
-<div class="sub-info">macOS V1.4 &middot; ZBrush 2026+ &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a></div>
+<div class="sub-info">macOS V1.6 &middot; ZBrush 2026+ &middot; <a href="https://github.com/skillshen-boop/zbrush-sculptbox">GitHub</a></div>
 </div></section>
 
 <div class="video-wrap">
@@ -633,18 +633,18 @@
 <p class="eyebrow reveal">常见问题</p>
 <h3 class="reveal">下载前你可能想知道</h3>
 <div class="faq-list">
-<div class="faq-item reveal"><h3>SculptBox 免费吗？</h3><p>免费。macOS 上可免费下载与使用；<strong>Windows 版本即将完成并发布</strong>。</p></div>
-<div class="faq-item reveal"><h3>没装 ZBrush 能用吗？</h3><p>可以。缩略图是从 <code>.ZBP</code> 文件原生解析的，所以浏览和搜索笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
+<div class="faq-item reveal"><h3>SculptBox 免费吗？</h3><p>免费。macOS 与 Windows 上均可免费下载使用。</p></div>
+<div class="faq-item reveal"><h3>支持 ZBrush 2025 或更早的版本吗？</h3><p>暂不支持。那些版本用的是旧的 Python 接口，我们未做测试 —— IPC 通道可能仍可用，但需要手动触发。</p></div>
+<div class="faq-item reveal"><h3>笔刷重复显示了两次？</h3><p>这是 V1.0 因扫描目录嵌套导致的缺陷（同一个笔刷同时出现在父目录和子目录下）。V1.1 会自动过滤嵌套路径并按文件路径去重。如果仍有重复，请在设置里重新扫描。</p></div>
 <div class="faq-item reveal"><h3>SculptBox 会修改或移动我的笔刷文件吗？</h3><p>不会。SculptBox 把你的笔刷目录视为只读，从不移动、改名或修改原始的 <code>.ZBP</code> / <code>.ZBR</code> 文件。</p></div>
-<div class="faq-item reveal"><h3>SculptBox 会上传数据吗？</h3><p>唯一的网络访问是可选的更新检查，且只发送请求本身。可在 <strong>设置 → 更新</strong> 里关闭。你的笔刷库和文件名不会离开本机。</p></div>
-<div class="faq-item reveal"><h3>macOS 提示应用已损坏，打不开。</h3><p>那是未签名应用的提示，不是文件损坏。执行 <code>sudo xattr -rd com.apple.quarantine /Applications/SculptBox.app</code> 即可 —— 详见<a href="download.zh.html">下载页</a>。</p></div>
+<div class="faq-item reveal"><h3>Alpha、材质、贴图也能管吗？</h3><p>可以。SculptBox 会索引笔刷、Alpha、材质和贴图，并各自归类。</p></div>
 </div>
 </div></section>
 
 <section class="cta"><div class="container">
 <h3>准备好了吗？</h3>
 <a href="https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest" class="btn">GitHub 下载</a>
-<a href="https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr" class="btn btn-alt">百度网盘 (提取码: tayr)</a>
+<a href="https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by" class="btn btn-alt">百度网盘 (提取码: 42by)</a>
 <a href="https://www.youtube.com/watch?v=ONkwdNhV3k8" class="btn btn-ghost">Watch Video</a>
 </div></section>
 

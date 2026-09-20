@@ -6,7 +6,7 @@
 
 **3D Asset Management Tool — Your brush library, at your fingertips.**
 
-Free · 4 languages (English / 中文 / 日本語 / 한국어) · macOS now, Windows in progress
+Free · 4 languages (English / 中文 / 日本語 / 한국어) · macOS &amp; Windows
 
 ---
 
@@ -18,8 +18,9 @@ English · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](RE
 
 | Version | Download | Notes |
 |:--------|:---------|:------|
-| macOS **V1.4** | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download · 136 MB |
-| macOS **V1.4** | [Baidu Pan](https://pan.baidu.com/s/1BeFZfMoCmqbfOQDEYJQdSg?pwd=tayr) | Code: tayr |
+| macOS **V1.6** | [GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | Direct download · 137 MB |
+| macOS **V1.6** | [Baidu Pan](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | Code: 42by |
+| Windows **V1.6** | [Baidu Pan](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | `.exe` installer · Code: 42by |
 
 > **Free, no account, no trial limit.** SculptBox treats your brush folders as read-only — your `.ZBP` files are never moved, renamed or edited. The only network access is an optional update check, which you can turn off.
 
