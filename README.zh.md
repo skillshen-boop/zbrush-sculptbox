@@ -18,9 +18,10 @@
 
 | 版本 | 下载 | 说明 |
 |:----|:----|:------|
-| macOS **V1.6** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 直接下载 · 137 MB |
-| macOS **V1.6** | [☁️ 百度网盘](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | 提取码: 42by |
-| Windows **V1.6** | [☁️ 百度网盘](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | `.exe` 安装包 · 提取码: 42by |
+| 平台 | GitHub Releases | 百度网盘 |
+|:-----|:----------------|:---------|
+| macOS **V1.6** | [`.dmg` · 137 MB](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | [提取码: 42by](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) |
+| Windows **V1.6** | [`.exe` · 47 MB](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | [提取码: 42by](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) |
 
 > **完全免费，不用注册，没有试用期。** SculptBox 把你的笔刷目录视为只读 —— 从不移动、改名或修改 `.ZBP` 文件。唯一的网络访问是可选的更新检查，可以关闭。
 

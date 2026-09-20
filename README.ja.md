@@ -14,9 +14,10 @@
 
 | バージョン | ダウンロード | 備考 |
 |:----------|:------------|:-----|
-| macOS **V1.6** | [⬇️ GitHub Releases](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | 137 MB · ZBrush 2026+ |
-| macOS **V1.6** | [☁️ Baidu Pan](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | コード: `42by` |
-| Windows **V1.6** | [☁️ Baidu Pan](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) | `.exe` インストーラー · コード: `42by` |
+| プラットフォーム | GitHub Releases | Baidu Pan |
+|:-----------------|:----------------|:----------|
+| macOS **V1.6** | [`.dmg` · 137 MB](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | [コード: 42by](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) |
+| Windows **V1.6** | [`.exe` · 47 MB](https://github.com/skillshen-boop/zbrush-sculptbox/releases/latest) | [コード: 42by](https://pan.baidu.com/s/11POEsG_BtU3o6nINWO0w7g?pwd=42by) |
 
 > **無料・アカウント不要・体験版の期限なし。** ブラシフォルダは読み取り専用として扱われ、`.ZBP` ファイルが移動・改名・編集されることはありません。
 
