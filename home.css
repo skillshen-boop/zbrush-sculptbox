@@ -680,20 +680,41 @@ html:not(.js) .reveal .pain-card { opacity: 1; transform: none; }
   .pain-track { grid-auto-columns: minmax(240px, 78%); }
 }
 
-/* 转折句的绿色矢量对钩 —— 排在文字**前面**，跟着标题字号缩放（所以写在 .b 里面）。
-   9 个勾**逐个**画：一格 .38s > 画线 .34s，前一个收笔下一个才起笔，
-   顺序放完 = 9 个痛点全被划掉。--d 是勾的序号（_home.py 写死）。 */
-.pivot .ticks { display: inline-flex; gap: .16em;
-                vertical-align: -.02em; margin-right: .34em; }
-.pivot .tick { width: .78em; height: .78em; overflow: visible; }
+/* 转折句的绿色矢量对钩 —— 描边画出来 */
+.pivot .tick { width: 1.05em; height: 1.05em; vertical-align: -.12em;
+               margin-right: .3em; overflow: visible; }
 .pivot .tick path { fill: none; stroke: #22C55E; stroke-width: 3;
                     stroke-linecap: round; stroke-linejoin: round;
                     stroke-dasharray: 34; stroke-dashoffset: 34; }
 html:not(.js) .pivot .tick path { stroke-dashoffset: 0; }
 html.js .pivot.in .tick path {
   animation: tickDraw .34s ease forwards;
-  animation-delay: calc(.45s + var(--d, 0) * .38s); }
+  animation-delay: .2s; }
 @keyframes tickDraw { to { stroke-dashoffset: 0; } }
+
+/* ── 对照表：两栏左右互换（2026-09-20）─────────────────────────────────
+   用户要求「配上 SculptBox」挪到**左边**、「你的日常」挪到右边。
+   左栏（解决后的样子）文字放大 + 每行一个绿勾；右栏（原来的痛点）保持原样。
+   site.css 里的 .tbl.cmp 规定的是旧顺序，这里覆盖掉。 */
+table.tbl.cmp td { vertical-align: top; }
+table.tbl.cmp td.fx { width: 58%; color: #E8E8E8;
+                      font-size: 1.32em; font-weight: 600; line-height: 1.45; }
+table.tbl.cmp td.pn-cell { width: 42%; color: #777; }
+table.tbl.cmp .tick { width: .92em; height: .92em; vertical-align: -.13em;
+                      margin-right: .5em; overflow: visible; }
+table.tbl.cmp .tick path { fill: none; stroke: #22C55E; stroke-width: 3;
+                           stroke-linecap: round; stroke-linejoin: round;
+                           stroke-dasharray: 34; stroke-dashoffset: 34; }
+html:not(.js) table.tbl.cmp .tick path { stroke-dashoffset: 0; }
+html.js table.tbl.reveal.in .tick path {
+  animation: tickDraw .34s ease forwards;
+  /* 一行一个勾，前一个收笔下一个才起笔（.38s 一格 > .34s 画线） */
+  animation-delay: calc(.2s + var(--d, 0) * .38s); }
+
+@media (max-width: 720px) {
+  /* 手机上两栏挤成一条，放大字号会把右栏压没 —— 回到等宽 */
+  table.tbl.cmp td.fx { width: 56%; font-size: 1.12em; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .pain-card { transition: none; }
