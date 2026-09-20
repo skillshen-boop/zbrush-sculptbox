@@ -64,6 +64,14 @@
         },
         {
           "@type": "Question",
+          "name": "自动切换笔刷没反应，ZBrush 只是闪一下。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多半是 macOS 的辅助功能授权失效了：本应用是临时签名的，每次重新打包签名指纹都会变，系统会把上一次的授权作废。请打开 系统设置 → 隐私与安全性 → 辅助功能，用 − 把 SculptBox 删掉，再用 + 加回来，然后重启 SculptBox。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "没装 ZBrush 能用吗？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -157,6 +165,7 @@
 <div class="faq-item"><h3>SculptBox 免费吗？</h3><p>免费。macOS 与 Windows 上均可免费下载使用。</p></div>
 <div class="faq-item"><h3>支持哪些 ZBrush 版本？</h3><p>浏览功能不依赖 ZBrush。而「<strong>发送到 ZBrush</strong>」需要 ZBrush 2026 或更高版本，因为它需要 Sculpt Bridge。</p></div>
 <div class="faq-item"><h3>支持 ZBrush 2025 或更早的版本吗？</h3><p>暂不支持。那些版本用的是旧的 Python 接口，我们未做测试 —— IPC 通道可能仍可用，但需要手动触发。</p></div>
+<div class="faq-item"><h3>自动切换笔刷没反应，ZBrush 只是闪一下。</h3><p>多半是 macOS 的辅助功能授权失效了：本应用是<strong>临时签名</strong>的，每次重新打包签名指纹都会变，系统会把上一次的授权作废。请打开 <strong>系统设置 → 隐私与安全性 → 辅助功能</strong>，用 <strong>−</strong> 把 SculptBox 删掉，再用 <strong>+</strong> 加回来，然后重启 SculptBox。</p></div>
 <div class="faq-item"><h3>没装 ZBrush 能用吗？</h3><p>可以。缩略图是从 <code>.ZBP</code> 文件原生解析的，所以浏览和搜索笔刷库不需要 ZBrush 运行，甚至不需要安装。</p></div>
 <div class="faq-item"><h3>我的 ZBrush 笔刷存在哪里？</h3><p>在 ZBrush 2026.1 及以后，它们位于每个用户自己的资产目录里。具体路径见 <a href="zbrush-2026-asset-directory.zh.html">ZBrush 2026.1 目录变更指南</a>。</p></div>
 <div class="faq-item"><h3>笔刷重复显示了两次？</h3><p>这是 V1.0 因扫描目录嵌套导致的缺陷（同一个笔刷同时出现在父目录和子目录下）。V1.1 会自动过滤嵌套路径并按文件路径去重。如果仍有重复，请在设置里重新扫描。</p></div>

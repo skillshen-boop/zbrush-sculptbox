@@ -64,6 +64,14 @@
         },
         {
           "@type": "Question",
+          "name": "Auto-switch does nothing — ZBrush just flashes.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost always the macOS Accessibility grant stopped applying: the app is ad-hoc signed, so its signature changes on every rebuild and macOS invalidates the previous approval. Open System Settings → Privacy & Security → Accessibility, remove SculptBox with −, add it back with +, then restart SculptBox."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Does SculptBox work without ZBrush installed?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -157,6 +165,7 @@
 <div class="faq-item"><h3>Is SculptBox free?</h3><p>Yes &mdash; free to download and use on macOS and Windows.</p></div>
 <div class="faq-item"><h3>Which ZBrush versions are supported?</h3><p>Browsing your library works independently of ZBrush. The <strong>Send to ZBrush</strong> feature requires ZBrush 2026 or later, because it uses Sculpt Bridge.</p></div>
 <div class="faq-item"><h3>Does it support ZBrush 2025 or earlier?</h3><p>Not yet. Those versions use an older Python API that we have not tested &mdash; the IPC channel may still work, but requires manual triggering.</p></div>
+<div class="faq-item"><h3>Auto-switch does nothing &mdash; ZBrush just flashes.</h3><p>Almost always the macOS Accessibility grant stopped applying: the app is <em>ad-hoc signed</em>, so its signature changes on every rebuild and macOS invalidates the previous approval. Open <strong>System Settings &rarr; Privacy &amp; Security &rarr; Accessibility</strong>, remove SculptBox with <strong>&minus;</strong>, add it back with <strong>+</strong>, then restart SculptBox.</p></div>
 <div class="faq-item"><h3>Does SculptBox work without ZBrush installed?</h3><p>Yes. Thumbnails are parsed natively from the <code>.ZBP</code> files, so ZBrush does not need to be running — or installed — to browse and search your brush library.</p></div>
 <div class="faq-item"><h3>Where are my ZBrush brushes stored?</h3><p>In ZBrush 2026.1 and newer they live in a per-user asset folder. See <a href="zbrush-2026-asset-directory.html">our guide to the 2026.1 asset directory change</a> for the exact paths on macOS and Windows.</p></div>
 <div class="faq-item"><h3>My brushes are showing twice / duplicated.</h3><p>This was a V1.0 bug caused by nested scan directories (the same brush appearing under both a parent and a child folder). V1.1 filters nested paths automatically and de-duplicates by file path. If you still see duplicates, re-scan your library from Settings.</p></div>
