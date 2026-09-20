@@ -653,8 +653,8 @@ html:not(.js) .reveal .k, html:not(.js) .reveal .b { opacity: 1; transform: none
    文字占满剩下的空间（.pt 是 flex:1），所以字号放大也不会把卡片撑开。 */
 .pain-card {
   height: 350px;
-  display: flex; flex-direction: column; gap: 12px;
-  padding: 20px 18px; border-radius: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 16px 16px; border-radius: 12px;
   background: linear-gradient(180deg, #161616, #121212);
   border: 1px solid #242424; border-left: 3px solid #7a3300;
   transition: transform .5s cubic-bezier(.2, .7, .3, 1),
@@ -664,10 +664,13 @@ html:not(.js) .reveal .k, html:not(.js) .reveal .b { opacity: 1; transform: none
 .pain-card:hover { border-color: #3a3a3a; border-left-color: var(--brand); }
 .pain-card .pn { font: 700 13px/1 var(--mono); letter-spacing: .1em;
                  color: var(--brand); opacity: .8; }
-/* ★ 卡片里的字是主角 —— 放大到 clamp(17px, 1.6vw, 22px)。
-   flex:1 让它吃掉编号以外的全部高度，所以放大字号也不会把 350px 撑开。 */
-.pain-card .pt { flex: 1; font-size: clamp(17px, 1.6vw, 22px); font-weight: 600;
-                 line-height: 1.5; color: var(--t2); }
+/* ★ 卡片里的字是主角 —— 22px → clamp(19px, 1.8vw, 26px)。
+   flex:1 让它吃掉编号以外的全部高度，所以放大字号也不会把 350px 撑开。
+   ★ 26px / 行高 1.35 是**实测出来的天花板**：再往上（27px，或 26px 时行高 1.4）
+     英文第 4 张卡就刚好顶满 293px 可用高度，只剩 2px 余量，换个字体/系统就会溢出。
+     现在最挤的语言（en）还剩 12px。要更大只有两条路：卡片加高，或把英文长句改短。 */
+.pain-card .pt { flex: 1; font-size: clamp(19px, 1.8vw, 26px); font-weight: 600;
+                 line-height: 1.35; color: var(--t2); }
 
 /* 入场：奇数从左飞，偶数从右飞 */
 html.js .reveal:not(.in) .pain-card { opacity: 0; }
